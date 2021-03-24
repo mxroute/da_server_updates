@@ -30,5 +30,9 @@ wget -O /etc/dovecot/conf.d/91-quota-warning.conf http://files1.directadmin.com/
 wget -O /usr/local/bin/quota-warning.sh http://files1.directadmin.com/services/all/quota-warning.sh
 chmod 755 /usr/local/bin/quota-warning.sh
 
+# For good measure
+
+echo "default_client_limit = 8192" >> /etc/dovecot/dovecot.conf
+
 # Restart Dovecot
 systemctl restart dovecot
