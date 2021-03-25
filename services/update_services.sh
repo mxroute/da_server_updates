@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# We can't just run custombuild's "update all" method or the gap between recompiling a service and reapplying it's custom config is too long, so we should add here the other services that we notice DA updating via the panel, and just update them manually. They may even be insignificant to our use case.
+# We can't just run custombuild's "update all" method or the gap between recompiling a service
+# and reapplying it's custom config is too long, so we should add here the other services that
+# we notice DA updating via the panel, and just update them manually. They may even be insignificant to our use case.
 
 sh /usr/local/directadmin/custombuild/build update
 sh /usr/local/directadmin/custombuild/build letsencrypt
