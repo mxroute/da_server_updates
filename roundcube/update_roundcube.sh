@@ -17,8 +17,6 @@ cp -R /var/www/html/roundcube /root/temp/backups/roundcube
 
 # Set SSL Redirect
 
-# Roundcube SSL Redirect
-
 if grep -q "RewriteCond" /var/www/html/roundcube/.htaccess
 then
         echo "Roundcube SSL redirect already in place."
