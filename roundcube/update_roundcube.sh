@@ -3,7 +3,7 @@
 # Set Variables
 
 RCMYSQLPASS=$(grep "password" /var/www/html/roundcube/config/my.cnf | sed 's/password=//')
-RCPLUGINS=(persistent_login)
+RCPLUGINS=(persistent_login advanced_search)
 
 # Make backup
 
@@ -39,6 +39,13 @@ else
 	chown -R webapps. /var/www/html/roundcube/plugins
 	mysql -uda_roundcube -p"$RCMYSQLPASS" da_roundcube < /var/www/html/roundcube/plugins/persistent_login/SQL/mysql.initial.sql
 fi
+
+# Install advanced_search
+
+	cd /var/www/html/roundcube/plugins
+	git clone git://github.com/texxasrulez/roundcube-advanced-search.git advanced_search
+	mv /var/www/html/roundcube/plugins/advanced_search/config.inc.php.dist /var/www/html/roundcube/plugins/advanced_search/config.inc.php
+	chown -R webapps. /var/www/html/roundcube/plugins
 
 # Add plugins to config
 
