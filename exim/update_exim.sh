@@ -18,6 +18,16 @@ wget https://config.mxroute.com/update/exim/exim.strings.conf.custom -P /etc
 
 sh /usr/local/directadmin/custombuild/build exim_conf
 
+# Add transport include
+
+rm -f /etc/exim.transports.pre.conf
+wget https://raw.githubusercontent.com/mxroute/da_server_updates/master/exim/exim.transports.pre.conf -P /etc
+
+# Add router include
+
+rm -f /etc/exim.routers.pre.conf
+wget https://raw.githubusercontent.com/mxroute/da_server_updates/master/exim/exim.routers.pre.conf -P /etc
+
 # Fix problematic exim ACL
 
 if grep -q "#deny message = HELO_IS_LOCAL_DOMAIN" /etc/exim.conf
