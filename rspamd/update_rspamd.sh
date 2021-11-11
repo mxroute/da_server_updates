@@ -10,21 +10,18 @@ then
 	rm -rf /etc/rspamd.bak
 	cp -R /etc/rspamd /etc/rspamd.bak
 	yum install git -y
-	git --work-tree=/etc/rspamd --git-dir=/etc/rspamd/.git init
-	git --work-tree=/etc/rspamd --git-dir=/etc/rspamd/.git remote add origin https://github.com/mxroute/rspamd_rules
-	rm -rf /etc/rspamd/local.d
-	rm -rf /etc/rspamd/maps
-	rm -rf /etc/rspamd/maps.d
-	rm -rf /etc/rspamd/override.d
-	git --work-tree=/etc/rspamd --git-dir=/etc/rspamd/.git reset --hard
-	git --work-tree=/etc/rspamd --git-dir=/etc/rspamd/.git pull origin master
+	rm -rf /etc/rspamd/rspamd_rules
+	cd /etc/rspamd
+	git clone https://github.com/mxroute/rspamd_rules
+	rm -rf lists
+	rm -rf local.d
+	rm -rf override.d
+	mv rspamd_rules/lists .
+	mv rspamd_rules/local.d .
+	mv rspamd_rules/override.d .
 else
 	echo "Rspamd is not installed on this system."
 fi
-
-# Make rspamd run for everyone
-rm -f /etc/exim/rspamd/check_message.conf
-wget https://config.mxroute.com/update/rspamd/check_message.conf -P /etc/exim/rspamd
 
 systemctl restart rspamd
 killall -9 exim && systemctl restart exim
