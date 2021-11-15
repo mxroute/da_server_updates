@@ -8,7 +8,7 @@ IP4=$(/sbin/ip -o -4 addr list eno1 | awk '{print $4}' | cut -d/ -f1)
 
 # Prep for scripts
 
-yum install git -y
+apt install git -y
 cd /root
 git clone https://github.com/mxroute/da_server_updates
 chmod +x /root/da_server_updates/*.sh
