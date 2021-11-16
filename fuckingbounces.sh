@@ -10,6 +10,13 @@ then
   echo "Cron already installed."
 else
   echo "0 * * * * /bin/bash /root/fuckingbounces.sh >/dev/null 2>&1" >> /var/spool/cron/crontabs/root
+  chmod +x /root/fuckingbounces.sh
+fi
+
+if grep -q "fuckingbounces" /var/spool/cron/root
+then
+  echo "Cron already installed."
+else
   echo "0 * * * * /bin/bash /root/fuckingbounces.sh >/dev/null 2>&1" >> /var/spool/cron/root
   chmod +x /root/fuckingbounces.sh
 fi
