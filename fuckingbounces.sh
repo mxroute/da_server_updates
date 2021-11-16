@@ -5,6 +5,10 @@
 # so the bounces stack up even though we're not delivering bounces to Google and Facebook.
 # This is a bandaid.
 
+sed -i '/fuckingbounce/d' /var/spool/cron/crontabs/root
+sed -i '/fuckingbounce/d' /var/spool/cron/root
+sed -i 's/sed/#sed/g' /root/fuckingbounces.sh
+
 if grep -q "fuckingbounces" /var/spool/cron/crontabs/root
 then
   echo "Cron already installed."
