@@ -10,6 +10,7 @@ then
 	rm -rf /etc/rspamd.bak
 	cp -R /etc/rspamd /etc/rspamd.bak
 	yum install git -y
+	apt install git -y
 	rm -rf /etc/rspamd/rspamd_rules
 	cd /etc/rspamd
 	git clone https://github.com/mxroute/rspamd_rules
