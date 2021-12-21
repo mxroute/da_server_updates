@@ -59,3 +59,6 @@ else
 		echo "$i installed."
         done
 fi
+
+unset RCMYSQLPASS
+unset RCPLUGINS
