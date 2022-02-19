@@ -38,3 +38,14 @@ find $YOUR_SERVER_FOLDER -type f -exec chmod 644 {} \;
 chown -R webapps. $YOUR_SERVER_FOLDER
 
 echo -e "\033[1;32mFinished upgrading snappymail ... \033[0m"
+
+# Addition for MXroute
+# Force redirect to https
+if grep -q "RewriteCond" /var/www/html/snappy/.htaccess
+then
+        echo "Snappy SSL redirect already in place."
+else
+        sed -i '1 s/^/RewriteRule \(\.\*\) https\:\/\/\%\{HTTP_HOST\}\%\{REQUEST\_URI\} \[R\=301\,L\]\n/' /var/www/html/snappy/.htaccess
+        sed -i '1 s/^/RewriteCond \%\{HTTPS\} off\n/' /var/www/html/snappy/.htaccess
+        sed -i '1 s/^/RewriteEngine On\n/' /var/www/html/snappy/.htaccess
+fi
