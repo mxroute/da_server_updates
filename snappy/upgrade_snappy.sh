@@ -20,8 +20,10 @@ YOUR_SERVER_FOLDER="/var/www/html/snappy/"
 # By Uwe Bieling <pychi@gmx.de>
 
 # Safty First ... make a backup
+mkdir -p /root/snappybackup
 cd $YOUR_SERVER_FOLDER && cd ..
 tar -czf backup_snappymail_`date +%Y%m%d`.tar.gz $YOUR_SERVER_FOLDER
+mv backup_snappymail_`date +%Y%m%d`.tar.gz /root/snappybackup
 
 # Download last release to /tmp
 cd /tmp
@@ -33,6 +35,6 @@ tar -xzvf snappy.tar.gz -C $YOUR_SERVER_FOLDER
 # set permissions
 find $YOUR_SERVER_FOLDER -type d -exec chmod 755 {} \;
 find $YOUR_SERVER_FOLDER -type f -exec chmod 644 {} \;
-chown -R www-data:www-data $YOUR_SERVER_FOLDER
+chown -R webapps. $YOUR_SERVER_FOLDER
 
 echo -e "\033[1;32mFinished upgrading snappymail ... \033[0m"
