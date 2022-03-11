@@ -1,0 +1,117 @@
+# Exim filter
+#VERSION=1.3
+## Version: 0.17e
+#	$Id: system_filter.exim,v 1.11 2001/09/19 11:27:56 nigel Exp $
+# Altered for MXroute systems
+
+## Exim system filter to refuse potentially harmful payloads in
+## mail messages
+## (c) 2000-2001 Nigel Metheringham <nigel@exim.org>
+##
+##    This program is free software; you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation; either version 2 of the License, or
+##    (at your option) any later version.
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program; if not, write to the Free Software
+##    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+## -A copy of the GNU General Public License is distributed with exim itself
+
+
+## -----------------------------------------------------------------------
+# Only run any of this stuff on the first pass through the
+# filter - this is an optomisation for messages that get
+# queued and have several delivery attempts
+#
+# we express this in reverse so we can just bail out
+# on inappropriate messages
+#
+if not first_delivery
+then
+  finish
+endif
+
+## -----------------------------------------------------------------------
+# Check for MS buffer overruns as per BUGTRAQ.
+# http://www.securityfocus.com/frames/?content=/templates/article.html%3Fid%3D61
+# This could happen in error messages, hence its placing
+# here...
+# We substract the first n characters of the date header
+# and test if its the same as the date header... which
+# is a lousy way of checking if the date is longer than
+# n chars long
+if ${length_80:$header_date:} is not $header_date:
+then
+  seen finish
+endif
+
+## -----------------------------------------------------------------------
+# These messages are now being sent with a <> envelope sender, but
+# blocking all error messages that pattern match prevents
+# bounces getting back.... so we fudge it somewhat and check for known
+# header signatures.  Other bounces are allowed through.
+if $header_from: contains "@sexyfun.net"
+then
+  seen finish
+endif
+if error_message and $header_from: contains "Mailer-Daemon@"
+then
+  # looks like a real error message - just ignore it
+  finish
+endif
+
+## -----------------------------------------------------------------------
+# Look for single part MIME messages with suspicious name extensions
+# Check Content-Type header using quoted filename [content_type_quoted_fn_match]
+if $header_content-type: matches "(?:file)?name=\"([^\"]+\\\\.(?:ad[ep]|ba[st]|chm|cmd|com|cpl|crt|exe|hlp|hta|in[fs]|isp|jse?|lnk|md[be]|ms[cipt]|pcd|pif|reg|sc[mrt]|shs|url|vb[se]?|ws[fhc]))\""
+then
+  seen finish
+endif
+# same again using unquoted filename [content_type_unquoted_fn_match]
+if $header_content-type: matches "(?:file)?name=(\\\\S+\\\\.(?:ad[ep]|ba[st]|chm|cmd|com|cpl|crt|exe|hlp|hta|in[fs]|isp|jse?|lnk|md[be]|ms[cipt]|pcd|pif|reg|sc[mrt]|shs|url|vb[se]?|ws[fhc])\")([\\\\s;]|\\$)"
+then
+  seen finish
+endif
+
+
+## -----------------------------------------------------------------------
+# Attempt to catch embedded VBS attachments
+# in emails.   These were used as the basis for 
+# the ILOVEYOU virus and its variants - many many varients
+# Quoted filename - [body_quoted_fn_match]
+if $message_body matches "(?:Content-(?:Type:(?>\\\\s*)[\\\\w-]+/[\\\\w-]+|Disposition:(?>\\\\s*)attachment);(?>\\\\s*)(?:file)?name=|begin(?>\\\\s+)[0-7]{3,4}(?>\\\\s+))\"([^\"]+\\\\.(?:ad[ep]|ba[st]|chm|cmd|com|cpl|crt|exe|hlp|hta|in[fs]|isp|jse?|lnk|md[be]|ms[cipt]|pcd|pif|reg|sc[mrt]|shs|url|vb[se]?|ws[fhc])\")[\\\\s;]"
+then
+  seen finish
+endif
+# same again using unquoted filename [body_unquoted_fn_match]
+if $message_body matches "(?:Content-(?:Type:(?>\\\\s*)[\\\\w-]+/[\\\\w-]+|Disposition:(?>\\\\s*)attachment);(?>\\\\s*)(?:file)?name=|begin(?>\\\\s+)[0-7]{3,4}(?>\\\\s+))(\\\\S+\\\\.(?:ad[ep]|ba[st]|chm|cmd|com|cpl|crt|exe|hlp|hta|in[fs]|isp|jse?|lnk|md[be]|ms[cipt]|pcd|pif|reg|sc[mrt]|shs|url|vb[se]?|ws[fhc])\")[\\\\s;]"
+then
+  seen finish
+endif
+## -----------------------------------------------------------------------
+
+# Fudge to catch Klez virus (mal formed mime details, unquoted filename with spaces)
+#if $message_body matches "Content-Type:(?>\\\\s*)[\\\\w-]+/[\\\\w-]+;\\\\s*(?:name)=([^\" ]+ [^\"]*\\\\.(?:ad[ep]|ba[st]|chm|cmd|com|cpl|crt|exe|hlp|hta|in[fs]|isp|jse?|lnk|md[be]|ms[cipt]|pcd|pif|reg|sc[mrt]|shs|url|vb[se]?|ws[fhc])\")[\\\\s;]"
+#then
+#  seen finish
+#endif
+
+
+## -----------------------------------------------------------------------
+
+
+if $header_subject: contains "Delivery Status Notification"
+then
+  seen finish
+endif
+
+if $header_subject: contains "Mail delivery failed"
+then
+  seen finish
+endif
