@@ -6,7 +6,7 @@
 # by reducing the malicious networks that can be used to test passwords from publicized databases
 # against customer email accounts
 
-ASNS="136647 202306 205090 211252 213035 28098 29182 399471 40065 40676 43830 49392 49870 62212 211619"
+ASNS="136647 202306 205090 211252 213035 28098 29182 399471 40065 40676 43830 49392 49870 62212 211619 200019"
 
 for a in $ASNS
   do
