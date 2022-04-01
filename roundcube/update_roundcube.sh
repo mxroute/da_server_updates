@@ -43,7 +43,7 @@ fi
 # Install advanced_search
 
 	cd /var/www/html/roundcube/plugins
-	git clone https://github.com/texxasrulez/advanced_search
+	git clone https://github.com/mxroute/advanced_search
 	mv /var/www/html/roundcube/plugins/advanced_search/config.inc.php.dist /var/www/html/roundcube/plugins/advanced_search/config.inc.php
 	chown -R webapps. /var/www/html/roundcube/plugins
 
