@@ -28,16 +28,11 @@ wget https://raw.githubusercontent.com/mxroute/da_server_updates/master/exim/exi
 rm -f /etc/exim.routers.pre.conf
 wget https://raw.githubusercontent.com/mxroute/da_server_updates/master/exim/exim.routers.pre.conf -P /etc
 
-# Fix problematic exim ACL
+# Deploy custom exim.conf
 
-if grep -q "#deny message = HELO_IS_LOCAL_DOMAIN" /etc/exim.conf
-then
-        echo "Exim ACL already commented out."
-else
-        sed -i 's/deny message = HELO_IS_LOCAL_DOMAIN/#deny message = HELO_IS_LOCAL_DOMAIN/g' /etc/exim.conf
-        sed -i 's/condition = ${if match_domain{$sender_helo_name/#condition = ${if match_domain{$sender_helo_name/g' /etc/exim.conf
-        sed -i 's/hosts = ! +relay_hosts/#hosts = ! +relay_hosts/g' /etc/exim.conf
-fi
+rm -f /etc/exim.conf.bak
+mv /etc/exim.conf /etc/exim.conf.bak
+wget https://raw.githubusercontent.com/mxroute/da_server_updates/master/exim/exim.conf -P /etc
 
 # If we don't kill exim before restarting it we cause downtime, if we do we face the tiniest of risks. Least risky play is kill -9 + restart.
 
