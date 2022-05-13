@@ -13,4 +13,5 @@ sh /usr/local/directadmin/custombuild/build clamav
 sh /usr/local/directadmin/custombuild/build libxml2
 sh /usr/local/directadmin/custombuild/build libxslt
 sh /usr/local/directadmin/custombuild/build freetype
-sh /usr/local/directadmin/custombuild/build directadmin
+#sh /usr/local/directadmin/custombuild/build directadmin
+sh /usr/local/directadmin/scripts/getDA.sh current
