@@ -4,15 +4,14 @@
 
 # Variables
 HOSTNAME=$1
-IP4=$(/sbin/ip -o -4 addr list eno1 | awk '{print $4}' | cut -d/ -f1)
+IFACENAME=$(route | grep default | awk '{print $8}')
+IP4=$(/sbin/ip -o -4 addr list $IFACENAME | awk '{print $4}' | cut -d/ -f1)
 
 # Prep for scripts
 
-apt install git -y
-cd /root
-git clone https://github.com/mxroute/da_server_updates
-chmod +x /root/da_server_updates/*.sh
-chmod +x /root/da_server_updates/*/*.sh
+apt install git net-tools -y
+cd /root && git clone https://github.com/mxroute/da_server_updates
+for bashscript in $(find /root/da_server_updates ".sh" | grep -v ".git"); do chmod +x $bashscript; done
 
 # Set hostname
 hostnamectl set-hostname $HOSTNAME
@@ -100,11 +99,7 @@ EOL
 
 # Custom Exim variables
 
-cat >> /etc/exim.variables.conf.custom <<EOL
-daemon_smtp_ports=25 : 587 : 465 : 2525
-tls_require_ciphers=ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:
-timeout_frozen_after=3h
-EOL
+cp /root/da_server_updates/exim/exim.variables.conf.custom /etc
 
 # Mail SNI
 
@@ -138,43 +133,6 @@ cd custombuild
 ./build dovecot_conf
 ./build exim_conf
 ./build roundcube
-
-# Rainloop
-
-mkdir -p /root/temp/rainloop
-cd /root/temp/rainloop
-wget https://raw.githubusercontent.com/poralix/directadmin-utils/master/webapps/rainloop.install.sh -O rainloop.install.sh
-chmod 755 rainloop.install.sh
-./rainloop.install.sh
-
-# Set up relays
-
-cat >> /etc/exim.routers.pre.conf <<"EOF"
-smart_route:
-  driver = manualroute
-  domains = ! +local_domains
-  ignore_target_hosts = 127.0.0.0/8
-  condition = "${perl{check_limits}}"
-  transport = auth_relay
-  route_list = * filtergroup.mxroute.com::2525
-  no_more
-EOF
-
-cat >> /etc/exim.transports.pre.conf <<"EOF"
-auth_relay:
-  driver = smtp
-  message_linelength_limit = 8000
-  tls_tempfail_tryclear = true
-  headers_add = X-AuthUser: ${if match {$authenticated_id}{.*@.*}\
-  {$authenticated_id} {${if match {$authenticated_id}{.+}\
-  {$authenticated_id@$primary_hostname}{$authenticated_id}}}}
-  headers_remove = Received
-  dkim_domain = ${if eq{${lc:${domain:$h_from:}}}{}{$primary_hostname}{${lookup{${lc:${domain:$h_from:}}}lsearch,ret=key{/etc/virtual/domainowners}{$value}}}}
-  dkim_selector = x
-  dkim_private_key = ${if exists{/etc/virtual/$dkim_domain/dkim.private.key}{/etc/virtual/$dkim_domain/dkim.private.key}{0}}
-  dkim_canon = relaxed
-  dkim_strict = 0
-EOF
 
 # CSF Profile
 mv /etc/csf/csf.conf /etc/csf/csf.conf.original
@@ -276,7 +234,7 @@ rm -f /usr/local/directadmin/data/users/admin/ticket.conf
 cat >> /usr/local/directadmin/data/users/admin/ticket.conf <<"EOF"
 ON=yes
 active=no
-email=support@mxroute.com
+email=ticketsupport@mxroute.com
 html=Follow <a href="https://mxroute.com/support">this link</a> for support.
 new=0
 newticket=0
@@ -288,35 +246,16 @@ chown diradmin. /usr/local/directadmin/data/users/admin/ticket.conf
 echo "0" > /etc/virtual/limit
 echo "7200" > /etc/virtual/user_limit
 
-# Custom ESF values
-
-cat >> /etc/exim.easy_spam_fighter/variables.conf.custom <<"EOF"
-EASY_LIMIT == 55
-EASY_IS_SPAM == 20
-EASY_HIGH_SCORE_DROP == 150
-EASY_SPF_PASS == -30
-EASY_SPF_SOFT_FAIL == 20
-EASY_SPF_FAIL == 100
-EASY_DKIM_PASS == -20
-EASY_DKIM_FAIL == 50
-EASY_NO_REVERSE_IP == 100
-EASY_FORWARD_CONFIRMED_RDNS == -10
-EASY_DNS_BLACKLIST == 50
-EASY_SPAMASSASSIN_MAX_SIZE == 2048K
-EOF
-systemctl restart exim
-
 # Run updates/customizations
 
 sh /root/da_server_updates/exim/update_exim.sh
 sh /root/da_server_updates/roundcube/update_roundcube.sh
 sh /root/da_server_updates/rspamd/update_rspamd.sh
 
-# Enable Backups
+# Install template customizations
 
-echo "Backups will need to be setup manually for now."
-echo " "
+sh /root/da_server_updates/directadmin/updatetheme.sh
 
 # Finisher
 
-echo "Don't forget to add $IP4 to the filter servers, install Crossbox, and set an admin pass for Rainloop"
+echo "Don't forget to add $IP4 to the filter servers and install Crossbox"
