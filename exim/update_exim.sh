@@ -34,6 +34,12 @@ rm -f /etc/exim.conf.bak
 mv /etc/exim.conf /etc/exim.conf.bak
 cp /root/da_server_updates/exim/exim.conf -P /etc
 
+# Deploy custom exim filter
+
+rm -f /etc/system_filter.exim.bak
+mv /etc/system_filter.exim /etc/system_filter.exim.bak
+cp /root/da_server_updates/exim/system_filter.exim /etc
+
 # If we don't kill exim before restarting it we cause downtime, if we do we face the tiniest of risks. Least risky play is kill -9 + restart.
 
 killall -9 exim && systemctl restart exim
