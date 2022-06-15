@@ -40,3 +40,9 @@ sh /root/da_server_updates/snappy/upgrade_snappy.sh
 
 # Update Roundcube
 sh /root/da_server_updates/update_roundcube.sh
+
+# Enable ioncube
+sh /usr/local/directadmin/custombuild/build set ioncube yes
+
+# Update/build PHP
+sh /usr/local/directadmin/custombuild/build php
