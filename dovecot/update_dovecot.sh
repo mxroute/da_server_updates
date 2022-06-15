@@ -37,6 +37,10 @@ chmod 755 /usr/local/bin/quota-warning.sh
 
 echo "default_client_limit = 8192" >> /etc/dovecot/dovecot.conf
 
+# Set per IP limits above defaults
+rm -f /etc/dovecot/conf/mail_max_userip_connections.conf
+cp /root/da_server_updates/dovecot/mail_max_userip_connections.conf /etc/dovecot/conf
+
 # Restart Dovecot
 
 systemctl restart dovecot
