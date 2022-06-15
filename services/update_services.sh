@@ -23,7 +23,6 @@ sh /usr/local/directadmin/custombuild/build libxslt
 sh /usr/local/directadmin/custombuild/build freetype
 sh /usr/local/directadmin/custombuild/build bubblewrap
 sh /usr/local/directadmin/custombuild/build imapsync
-sh /usr/local/directadmin/custombuild/build ioncube
 sh /usr/local/directadmin/custombuild/build redis
 
 # Update DirectAdmin
@@ -46,3 +45,4 @@ sh /usr/local/directadmin/custombuild/build set ioncube yes
 
 # Update/build PHP
 sh /usr/local/directadmin/custombuild/build php
+sh /usr/local/directadmin/custombuild/build ioncube
