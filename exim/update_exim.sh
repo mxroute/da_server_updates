@@ -32,7 +32,7 @@ cp /root/da_server_updates/exim/exim.routers.pre.conf -P /etc
 
 rm -f /etc/exim.conf.bak
 mv /etc/exim.conf /etc/exim.conf.bak
-cp /root/da_server_updates/exim/exim.conf -P /etc
+cp /root/da_server_updates/exim/exim.conf /etc
 
 # Deploy custom exim filter
 
