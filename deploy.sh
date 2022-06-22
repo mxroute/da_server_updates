@@ -215,14 +215,14 @@ chmod 600 /root/creds
 
 # Get packages
 
-cd /usr/local/directadmin/data/users/admin
-wget https://config.mxroute.com/deploy/packages.zip
+#cd /usr/local/directadmin/data/users/admin
+#wget https://config.mxroute.com/deploy/packages.zip
 yum install unzip -y
-unzip packages.zip
-for i in $(ls /usr/local/directadmin/data/users/admin/packages); do echo $i >> /usr/local/directadmin/data/users/admin/packages.list; done
-sed -i 's/.pkg//g' /usr/local/directadmin/data/users/admin/packages.list
-chown diradmin. /usr/local/directadmin/data/users/admin/packages.list
-chown -R diradmin. /usr/local/directadmin/data/users/admin/packages
+#unzip packages.zip
+#for i in $(ls /usr/local/directadmin/data/users/admin/packages); do echo $i >> /usr/local/directadmin/data/users/admin/packages.list; done
+#sed -i 's/.pkg//g' /usr/local/directadmin/data/users/admin/packages.list
+#chown diradmin. /usr/local/directadmin/data/users/admin/packages.list
+#chown -R diradmin. /usr/local/directadmin/data/users/admin/packages
 
 # Fix admin skin
 
