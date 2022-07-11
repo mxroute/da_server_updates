@@ -59,6 +59,21 @@ else
 		echo "$i installed."
         done
 fi
+cat >> /var/www/html/roundcube/plugins/managesieve/config.inc.php <<EOL
+$config['sieverules_allowed_actions'] = array(
+											'fileinto' => TRUE,
+											'vacation' => TRUE,
+											'reject' => TRUE,
+											'redirect' => TRUE,
+											'keep' => TRUE,
+											'discard' => TRUE,
+											'imapflags' => TRUE,
+											'notify' => TRUE,
+											'stop' => TRUE,
+											'editheaderadd' => TRUE,
+											'editheaderrem' => TRUE
+											);
+EOL
 
 unset RCMYSQLPASS
 unset RCPLUGINS
