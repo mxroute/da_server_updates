@@ -1,1 +1,3 @@
-RBL_DNS_LIST==bl.mxrbl.com
+RBL_DNS_LIST==\
+      bl.mxrbl.com : \
+      zen.spamhaus.org
