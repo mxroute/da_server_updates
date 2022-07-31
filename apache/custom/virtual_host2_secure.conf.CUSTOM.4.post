@@ -1,0 +1,17 @@
+<VirtualHost |IP|:|PORT_443| |MULTI_IP|>
+   ServerName webmail.|DOMAIN|
+   ServerAdmin |ADMIN|
+   DocumentRoot /var/www/html/roundcube
+
+   SSLEngine on
+   SSLCertificateFile |CERT|
+   SSLCertificateKeyFile |KEY|
+   |CAROOT|
+
+   CustomLog /var/log/httpd/domains/|DOMAIN|.bytes bytes
+   CustomLog /var/log/httpd/domains/|DOMAIN|.log combined
+   ErrorLog /var/log/httpd/domains/|DOMAIN|.error.log
+   <IfModule !mod_ruid2.c>
+       SuexecUserGroup webapps webapps
+   </IfModule>
+</VirtualHost>
