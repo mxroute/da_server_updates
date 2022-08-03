@@ -1,10 +1,5 @@
 #!/bin/bash
-# Sincerely, fuck these networks and the people who run them
-# These networks are not only home to massive amounts of spammers, but also to overall attackers
-# Blocking these networks will dramatically reduce brute force events on our servers,
-# and also somewhat mitigate against users who have had their password made public through some compromise across the internet
-# by reducing the malicious networks that can be used to test passwords from publicized databases
-# against customer email accounts
+# These networks have been deemed clean after previously having been considered to not be so, and are now being unfucked on our network.
 
 ASNS="62838"
 
