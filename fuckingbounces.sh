@@ -7,3 +7,4 @@
 
 for i in $(exim -bp | grep noreply-dmarc-support -B 1 | awk '{print $3}'); do exim -Mrm $i; done
 for i in $(exim -bp | grep facebookmail.com -B 1 | awk '{print $3}'); do exim -Mrm $i; done
+for i in $(exim -bp | grep "<>" | awk '{print $3}'); do exim -Mrm $i ;done
