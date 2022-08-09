@@ -28,5 +28,5 @@ for username in $(ls /usr/local/directadmin/data/users);
         chmod 771 $DIR
 done
 
-# Rewrite Rspamd configs for users
+# Reload SA configs
 echo "action=rewrite&value=spamd" >> /usr/local/directadmin/data/task.queue
