@@ -2,9 +2,6 @@
    ServerName webmail.|DOMAIN|
    ServerAdmin |ADMIN|
    DocumentRoot /var/www/html/roundcube
-   CustomLog /var/log/httpd/domains/|DOMAIN|.bytes bytes
-   CustomLog /var/log/httpd/domains/|DOMAIN|.log combined
-   ErrorLog /var/log/httpd/domains/|DOMAIN|.error.log
    <IfModule !mod_ruid2.c>
        SuexecUserGroup webapps webapps
    </IfModule>
@@ -14,9 +11,6 @@
    ServerName mail.|DOMAIN|
    ServerAdmin |ADMIN|
    DocumentRoot /var/www/html/roundcube
-   CustomLog /var/log/httpd/domains/|DOMAIN|.bytes bytes
-   CustomLog /var/log/httpd/domains/|DOMAIN|.log combined
-   ErrorLog /var/log/httpd/domains/|DOMAIN|.error.log
    <IfModule !mod_ruid2.c>
        SuexecUserGroup webapps webapps
    </IfModule>
@@ -26,9 +20,6 @@
    ServerName mailadmin.|DOMAIN|
    ServerAdmin |ADMIN|
    DocumentRoot /var/www/html/panel
-   CustomLog /var/log/httpd/domains/|DOMAIN|.bytes bytes
-   CustomLog /var/log/httpd/domains/|DOMAIN|.log combined
-   ErrorLog /var/log/httpd/domains/|DOMAIN|.error.log
    <IfModule !mod_ruid2.c>
        SuexecUserGroup webapps webapps
    </IfModule>
