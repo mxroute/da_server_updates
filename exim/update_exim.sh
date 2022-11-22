@@ -2,8 +2,8 @@
 
 # Rebuild exim
 
-sh /usr/local/directadmin/custombuild/build update
-sh /usr/local/directadmin/custombuild/build exim
+/usr/local/directadmin/custombuild/build update
+/usr/local/directadmin/custombuild/build exim
 
 # Refresh custom files with new copies
 
@@ -16,7 +16,7 @@ cp /root/da_server_updates/exim/exim.strings.conf.custom /etc
 
 # Rebuild exim config
 
-sh /usr/local/directadmin/custombuild/build exim_conf
+/usr/local/directadmin/custombuild/build exim_conf
 
 # Add transport include
 
