@@ -3,10 +3,6 @@
 
 for i in $(grep "H=(amazon.co.jp)" /var/log/exim/mainlog | awk '{print $4}' | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | sort | uniq); do ip route add blackhole $i; done
 
-for i in $(grep "set_id=info)" /var/log/exim/mainlog | awk -F '\\) \\[' '{ print $2 }' | awk '{print $1}' | sed 's/]://' | sort | uniq); do ip route add blackhole $i; done
-
-for i in $(grep "login authenticator failed for" /var/log/exim/mainlog | awk -F '\\) \\[' '{ print $2 }' | awk '{print $1}' | sed 's/]://' | sort | uniq -c | sort -n | tail -5 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'); do ip route add blackhole $i; done
-
 for i in $(grep 'H=.*\.beauty) ' /var/log/exim/mainlog | awk -F '\\) \\[' '{ print $2 }' | awk '{print $1}' | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | sort | uniq); do ip route add blackhole $i; done
 
 for i in $(grep 'H=.*\.beauty ' /var/log/exim/mainlog | awk -F '\\) \\[' '{ print $2 }' | awk '{print $1}' | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | sort | uniq); do ip route add blackhole $i; done
