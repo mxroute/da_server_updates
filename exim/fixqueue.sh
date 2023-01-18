@@ -20,6 +20,8 @@ done)
 # check if matches are found
 if [ -z "$matches" ]; then
   echo "Exim needs a kick. Forcing queue run."
+  current_time=$(date +"%Y-%m-%d %T")
+  echo "Script run at $current_time" >> /root/fixqueue_logs
   sh /root/da_server_updates/runqueue.sh
 else
   echo "Exim is working fine right now."
