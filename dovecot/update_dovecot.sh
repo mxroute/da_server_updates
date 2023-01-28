@@ -6,6 +6,14 @@ sh /usr/local/directadmin/custombuild/build update
 sh /usr/local/directadmin/custombuild/build dovecot
 sh /usr/local/directadmin/custombuild/build dovecot_conf
 
+# Make sure log file is defined
+if grep -q "log_path" /etc/dovecot/dovecot.conf
+then
+        echo "Logging is fine."
+else
+echo "log_path = /var/log/mail.log" >> /etc/dovecot/dovecot.conf
+fi
+
 # Apply our original Dovecot limit fix
 
 if grep -q "service lmtp" /etc/dovecot/dovecot.conf
@@ -35,7 +43,12 @@ chmod 755 /usr/local/bin/quota-warning.sh
 
 # For good measure and will probably replace the previous client limit logic later
 
+if grep -q "default_client_limit" /etc/dovecot/dovecot.conf
+then
+        echo "default_client_limit in place."
+else
 echo "default_client_limit = 8192" >> /etc/dovecot/dovecot.conf
+fi
 
 # Set per IP limits above defaults
 rm -f /etc/dovecot/conf/mail_max_userip_connections.conf
