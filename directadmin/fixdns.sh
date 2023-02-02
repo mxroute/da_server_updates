@@ -9,5 +9,6 @@ IPADDR=$(curl -s http://whatismyip.akamai.com/)
 
 # Replace "ip4:$IPADDR" with "include:mxroute.com" in all .db files in /etc/bind
 sed -i "s/ip4:$IPADDR/include:mxroute.com/g" /etc/bind/*.db
+sed -i "s/ip4:$IPADDR/include:mxroute.com/g" /var/named/*.db
 
 # Now we pray to every god in history that we never have to speak of this again.
