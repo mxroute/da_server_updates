@@ -5,6 +5,8 @@ sed -i 's/letsencrypt_list_selected=mail:webmail/letsencrypt_list_selected=mail:
 systemctl restart directadmin
 
 mkdir /var/www/html/panel
+rm -f /var/www/html/panel/.htaccess
+
 cat >> /var/www/html/panel/.htaccess <<EOL
 SetEnvIf Request_URI "^(.*)" PORT=2222
 
