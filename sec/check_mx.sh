@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-# Create a temporary file for domains without MX records
+# Create a temporary file for domains with MX records
 temp_file=$(mktemp)
 
 # Iterate through each domain in the input file
@@ -14,7 +14,7 @@ while read -r domain; do
   # Use nslookup to check if the domain has MX record
   if nslookup -q=mx "$domain" 8.8.8.8 >/dev/null; then
     echo "$domain has MX record. Removing from input file."
-  else
+    # Add domain to temporary file
     echo "$domain" >> "$temp_file"
   fi
 done < "$1"
