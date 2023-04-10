@@ -1,0 +1,10 @@
+{
+  "skin/layout": "sidebar",
+  "skin/disable-route-transitions": false,
+  "standard-2021-layout/show-user-blocks": true,
+  "sidebar-layout/force-white-sidebar-header": false,
+  "simple-layout/navigation/display-type": "grid",
+  "standard-2021-layout/dashboard-type": "widgets",
+  "locked/force-layout-for-users": true,
+  "locked/external-style-file": ""
+}
