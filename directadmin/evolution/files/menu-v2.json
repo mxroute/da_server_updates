@@ -1,0 +1,183 @@
+{
+  "user": {
+    "appends": {
+      "entries": [
+        {
+          "id": "ud-afterlogic",
+          "category": "extra-features",
+          "enabled": true,
+          "position": 3,
+          "name": "Afterlogic",
+          "icon": "roundcube",
+          "href": "https://|HOSTNAME|/afterlogic",
+          "newTab": true
+        },
+        {
+          "id": "ud-snappy",
+          "category": "extra-features",
+          "enabled": true,
+          "position": 4,
+          "name": "Snappy",
+          "icon": "roundcube",
+          "href": "https://|HOSTNAME|/snappy",
+          "newTab": true
+        },
+        {
+          "id": "ud-crossbox",
+          "category": "extra-features",
+          "enabled": true,
+          "position": 5,
+          "name": "Crossbox",
+          "icon": "default",
+          "href": "https://mail.mxlogin.com",
+          "newTab": true
+        }
+      ],
+      "categories": []
+    },
+    "updates": {
+      "entries": {
+        "/user/dns": {
+          "name": "DKIM Keys (ONLY use DKIM key here)",
+          "newTab": false
+        },
+        "/user/ftp-accounts": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/database": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/redirects": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/hotlinks": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/php-settings": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/email/spamassassin": {
+          "name": "Spam Filter Config",
+          "newTab": false
+        },
+        "/user/email/filters": {
+          "name": "Exim Filters (Limited use case)",
+          "newTab": false
+        },
+        "/user/email/lists": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/dns/mx-records": {
+          "name": "Email Routing",
+          "newTab": false
+        },
+        "/user/handlers": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/backup": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/cronjobs": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/error-pages": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/mimetypes": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/protected-directories": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/ssh-keys": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/modsecurity": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/unit": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/nginx-templates": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/redis": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/git-version": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/wordpress": {
+          "enabled": false,
+          "newTab": false
+        },
+        "/user/clamav": {
+          "enabled": false,
+          "newTab": false
+        },
+        "squirrelmail": {
+          "enabled": false,
+          "newTab": false
+        },
+        "roundcube": {
+          "name": "Roundcube",
+          "newTab": false
+        },
+        "/phpmyadmin": {
+          "enabled": false,
+          "newTab": false
+        }
+      },
+      "categories": {
+        "system-information": {
+          "enabled": false
+        },
+        "extra-features": {
+          "name": "Webmail"
+        },
+        "support-help": {
+          "enabled": false
+        }
+      }
+    },
+    "pluginsMountCategory": "extra-features"
+  },
+  "reseller": {
+    "updates": {
+      "categories": {},
+      "entries": {}
+    },
+    "appends": {
+      "categories": [],
+      "entries": []
+    }
+  },
+  "admin": {
+    "updates": {
+      "categories": {},
+      "entries": {}
+    },
+    "appends": {
+      "categories": [],
+      "entries": []
+    }
+  }
+}
