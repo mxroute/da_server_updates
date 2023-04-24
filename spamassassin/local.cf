@@ -259,4 +259,4 @@ score MXEXPLORING 0
 
 header MXRBL eval:check_rbl('127.0.0.2', 'bl.mxrbl.com.')
 describe MXRBL Listed on mxrbl.com
-score MXRBL 100
+score MXRBL 25
