@@ -1,4 +1,2 @@
-RBL_DNS_LIST==\
-      bl.mxrbl.com : \
-      all.spamrats.com
+RBL_DNS_LIST==all.spamrats.com
 RBL_BLOCKED_BY_LIST==IP $sender_host_address blacklisted at $dnslist_domain
