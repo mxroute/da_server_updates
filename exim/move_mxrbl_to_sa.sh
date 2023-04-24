@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf /etc/exim.strings.conf.custom
+rm -f /etc/exim.strings.conf.custom
 cp /root/da_server_updates/exim/exim.strings.conf.custom /etc
 killall -9 exim
 systemctl restart exim
