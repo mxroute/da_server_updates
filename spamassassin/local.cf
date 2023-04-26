@@ -257,6 +257,6 @@ score COINSCAM2022 25
 header MXEXPLORING X-Fxyn-Mailer =~ /SwiftMailer/i
 score MXEXPLORING 0
 
-header MXRBL eval:check_rbl('127.0.0.2', 'bl.mxrbl.com.')
-describe MXRBL Listed on mxrbl.com
-score MXRBL 25
+#header MXRBL eval:check_rbl('127.0.0.2', 'bl.mxrbl.com.')
+#describe MXRBL Listed on mxrbl.com
+#score MXRBL 25
