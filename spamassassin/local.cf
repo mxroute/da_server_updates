@@ -260,4 +260,3 @@ score MXEXPLORING 0
 header MXRBL eval:check_rbl('mxrbl', 'bl.mxrbl.com.')
 describe MXRBL At least one relay blacklisted on mxrbl.com
 score MXRBL 0
-#score MXRBL 25
