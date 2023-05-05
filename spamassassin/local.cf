@@ -128,6 +128,7 @@ blacklist_from *.racing
 blacklist_from *.faith
 blacklist_from *.date
 
+score KAM_IPFS 5000
 score RCVD_IN_HOSTKARMA_BL 3
 score KAM_SOLAR 0
 score RCVD_IN_DNSWL_HI 0
@@ -253,10 +254,6 @@ score SEOSHIT2022TWO 50
 body COINSCAM2022 /(1AsRkzQSorZAc66fdXof9NHTNJdU4T8nC8Once|1Q57VuGipLWi9qauXCEDW9qrkiXuZtUcac)/i
 describe COINSCAM2022 Bitcoin ransom email
 score COINSCAM2022 25
-
-# This rule is intended only to log something that I think might uniquely identify spam, and I want to see what result is logged
-header MXEXPLORING X-Fxyn-Mailer =~ /SwiftMailer/i
-score MXEXPLORING 0
 
 header MXRBL eval:check_rbl('mxrbl', 'bl.mxrbl.com.')
 describe MXRBL At least one relay blacklisted on mxrbl.com
