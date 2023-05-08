@@ -128,6 +128,7 @@ blacklist_from *.racing
 blacklist_from *.faith
 blacklist_from *.date
 
+score RCVD_IN_HOSTKARMA_W 0
 score KAM_PASSEXP 5000
 score KAM_IPFS 5000
 score RCVD_IN_HOSTKARMA_BL 3
