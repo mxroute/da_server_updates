@@ -246,6 +246,10 @@ header SPAMDOMAINS2023 From =~ /(bisnisterukur\.com|ipv4services\.com|remarkety\
 describe SPAMDOMAINS2023 Spammers
 score SPAMDOMAINS2023 25
 
+header KNOWNSPAMMER From =~ /(onixlab\.xyz|upscale\.pro|upscaleagency\.info|upscale\-agency\.net|getonixlab\.com|getonixlab\.net|onixlab\.xyz)/i
+describe KNOWNSPAMMER Known spammer
+score KNOWNSPAMMER 100
+
 header SEOSHIT2022 Subject =~ /(Web Proposal|Yoga mat with|good authority site|good quality|good site|Have a look here|high da|link service|quality site|reasonable price|guest post|high traffic|posting service|sponsored post|ranked website|paid article|quality website|your good order|service guest|affordable price|back\-link|link builder|content marketing|da traffic|attached file|work with you please|scrape google|results-driven|back link|check my google|website for you|website ranking|my offer price is)/i
 describe SEOSHIT2022 Spammers
 score SEOSHIT2022 50
