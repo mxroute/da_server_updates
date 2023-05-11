@@ -230,7 +230,7 @@ header SUBJ2022 Subject =~ /(Clarify your Wallet Transactions|Your personal data
 describe SUBJ2022 Subject contained known spam string
 score SUBJ2022 25
 
-header SUBJ2023 Subject =~ /(DANTE Contract|Review Failed Mails|Due to Old Version|cPanel is delaying|Your parcel is waiting for delivery|invited to top adult|Verify your Account Deposits)/i
+header SUBJ2023 Subject =~ /(EMAIL DEACTIVATION NOTIFICATION|DANTE Contract|Review Failed Mails|Due to Old Version|cPanel is delaying|Your parcel is waiting for delivery|invited to top adult|Verify your Account Deposits)/i
 describe SUBJ2023 Subject contained known spam string
 score SUBJ2023 25
 
