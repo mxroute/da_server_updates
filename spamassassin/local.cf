@@ -264,6 +264,10 @@ body COINSCAM2022 /(1AsRkzQSorZAc66fdXof9NHTNJdU4T8nC8Once|1Q57VuGipLWi9qauXCEDW
 describe COINSCAM2022 Bitcoin ransom email
 score COINSCAM2022 25
 
+body HIGHIMPACTBODY /(ipfs\.dweb\.link)/i
+describe HIGHIMPACTBODY This is causing large scale issues for customers
+score HIGHIMPACTBODY 5000
+
 header MXRBL eval:check_rbl('mxrbl', 'bl.mxrbl.com.')
 describe MXRBL At least one relay blacklisted on mxrbl.com
 score MXRBL 7
