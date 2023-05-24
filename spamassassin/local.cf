@@ -128,7 +128,7 @@ blacklist_from *.racing
 blacklist_from *.faith
 blacklist_from *.date
 
-score KAM_MAILBOX2 25
+score KAM_MAILBOX2 10
 score TO_IN_SUBJ 3
 score KAM_HUGEIMGSRC 1
 score RCVD_IN_HOSTKARMA_W 0
