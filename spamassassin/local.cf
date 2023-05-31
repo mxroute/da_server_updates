@@ -264,7 +264,7 @@ body COINSCAM2022 /(1AsRkzQSorZAc66fdXof9NHTNJdU4T8nC8Once|1Q57VuGipLWi9qauXCEDW
 describe COINSCAM2022 Bitcoin ransom email
 score COINSCAM2022 25
 
-body HIGHIMPACTBODY /(Kindly be inform your password|gateway\.ipfs\.io|cloudflare\-ipfs\.com|ipfs\.io|gateway\.pinata\.cloud|4everland\.io|ipfs\.yt|via0\.com|storry\.tv|dweb\.eu\.org|cf\-ipfs\.com|ipfs\.runfission\.com|ipfs\.eth\.aragon\.network|ipfs\.anonymize\.com|ipfs\.scalaproject\.io|ipfs\.fleek\.co|permaweb\.eu\.org|ipfs\.jpu\.jp|w3s\.link|nftstorage\.link|konubinix\.eu|dweb\.link|video\.oneloveipfs\.com|storjipfs\-gateway\.com|hardbin\.com)/i
+body HIGHIMPACTBODY /(ipfs\.dweb\.link|Kindly be inform your password|gateway\.ipfs\.io|cloudflare\-ipfs\.com|ipfs\.io|gateway\.pinata\.cloud|4everland\.io|ipfs\.yt|via0\.com|storry\.tv|dweb\.eu\.org|cf\-ipfs\.com|ipfs\.runfission\.com|ipfs\.eth\.aragon\.network|ipfs\.anonymize\.com|ipfs\.scalaproject\.io|ipfs\.fleek\.co|permaweb\.eu\.org|ipfs\.jpu\.jp|w3s\.link|nftstorage\.link|konubinix\.eu|dweb\.link|video\.oneloveipfs\.com|storjipfs\-gateway\.com|hardbin\.com)/i
 describe HIGHIMPACTBODY This is causing large scale issues for customers
 score HIGHIMPACTBODY 5000
 
