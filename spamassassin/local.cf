@@ -275,3 +275,7 @@ score MXRBL 7
 header UCEPROT1 eval:check_rbl_txt('uceprotect1', 'dnsbl-1.uceprotect.net')
 describe UCEPROT1 At least one relay blacklisted on UCEPROTECT L1
 score UCEPROT1 2
+
+header SPAMRATS eval:check_rbl_txt('spamrats', 'all.spamrats.com')
+describe SPAMRATS At least one relay blacklisted on spamrats
+score SPAMRATS 2
