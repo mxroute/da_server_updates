@@ -240,7 +240,7 @@ body BODYSPAM2022 /(ikrinka\.de|lacasadelascarcasas|softgentechnologies\.com|tru
 describe BODYSPAM2022 Email contained known spam string
 score BODYSPAM2022 25
 
-body BODYSPAM2023 /(mulondon\.com|cbd\.fr|ChinaNoobWatch|novedadonline|truccoshop|catestseries|one year plan that you have activated for your PC|5ixm3\.r\.ag\.d\.sendibm3\.com|Take our quick survey|barb\-art\.fr|everywritersresource|if you do not complete the new two\-step verification process|bonjourmaurice\.be|hs\-hundebett\.myshopify\.com|If you want to delete yourself from the base|xitj6\.mjt\.lu|orcatrend|earlypeach|Please pass on my suggestions and contacts to the management)/i
+body BODYSPAM2023 /(buzzidil\.com|mulondon\.com|cbd\.fr|ChinaNoobWatch|novedadonline|truccoshop|catestseries|one year plan that you have activated for your PC|5ixm3\.r\.ag\.d\.sendibm3\.com|Take our quick survey|barb\-art\.fr|everywritersresource|if you do not complete the new two\-step verification process|bonjourmaurice\.be|hs\-hundebett\.myshopify\.com|If you want to delete yourself from the base|xitj6\.mjt\.lu|orcatrend|earlypeach|Please pass on my suggestions and contacts to the management)/i
 describe BODYSPAM2023 Email contained known spam string
 score BODYSPAM2023 25
 
