@@ -6,7 +6,7 @@
 for i in $(find /etc/virtual -name filter.conf)
         do
                 if ! grep -q "high_score_block" $i; then
-                        echo "high_score=20" >> $i
+                        echo "high_score=25" >> $i
                         echo "high_score_block=yes" >> $i
                         echo "where=delete" >> $i
                 fi
@@ -15,11 +15,12 @@ for i in $(find /etc/virtual -name filter.conf)
 # SA is dependent on user_prefs files so if there isn't one, make one
 for username in $(ls /usr/local/directadmin/data/users);
         do
-                DIR=/home/$username/.spamassassin
+		HOMEDIR=$(eval echo ~$username)
+                DIR=$HOMEDIR/.spamassassin
                 mkdir -p $DIR
                 UP=$DIR/user_prefs
                   if [ ! -s ${UP} ]; then
-                     echo 'required_score 20.0' > ${UP}
+                     echo 'required_score 25.0' > ${UP}
                      echo 'report_safe 1' >> ${UP}
                      chown $username:$username  ${UP}
                      chmod 644 ${UP}
