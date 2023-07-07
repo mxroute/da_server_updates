@@ -127,6 +127,7 @@ report _SUMMARY_
 blacklist_from *.racing
 blacklist_from *.faith
 blacklist_from *.date
+whitelist_from *@mail.discord.com
 
 score KAM_MAILBOX2 4
 score TO_IN_SUBJ 3
