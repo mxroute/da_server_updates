@@ -271,7 +271,7 @@ score HIGHIMPACTBODY 5000
 
 header MXRBL eval:check_rbl('mxrbl', 'bl.mxrbl.com.')
 describe MXRBL At least one relay blacklisted on mxrbl.com
-score MXRBL 7
+score MXRBL 6
 
 header UCEPROT1 eval:check_rbl_txt('uceprotect1', 'dnsbl-1.uceprotect.net')
 describe UCEPROT1 At least one relay blacklisted on UCEPROTECT L1
