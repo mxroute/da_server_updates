@@ -280,3 +280,7 @@ score UCEPROT1 2
 header SPAMRATS eval:check_rbl_txt('spamrats', 'all.spamrats.com')
 describe SPAMRATS At least one relay blacklisted on spamrats
 score SPAMRATS 2
+
+header REPLYTOSPAM Reply-To =~ /(marshallrobinson346)/i
+describe REPLYTOSPAM Testing results
+score REPLYTOSPAM 0
