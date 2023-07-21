@@ -229,7 +229,7 @@ header GENSPAMSUBJ Subject =~ /(your account has been hacked|your unsettled paym
 describe GENSPAMSUBJ Subject contained known spam string
 score GENSPAMSUBJ 25
 
-header SUBJ2022 Subject =~ /(Clarify your Wallet Transactions|Your personal data has leaked|The best pills|Die besten Pillen|your reward is waiting|Ace Hardware Gift Card|Your Wikipedia Moderator|I recorded you|ALL\.\ NEW\.\ NIKE|Game Show Parties|very cheap prices|Online drugs|Would you rather|Dyson Vacuum|SUPER DISCOUNT|HOURS LEFT|Summer Clearance|Ace Hardware)/i
+header SUBJ2022 Subject =~ /(Clarify your Wallet Transactions|Your personal data has leaked|The best pills|Die besten Pillen|your reward is waiting|Ace Hardware Gift Card|Your Wikipedia Moderator|I recorded you|ALL\.\ NEW\.\ NIKE|Game Show Parties|very cheap prices|Online drugs|Would you rather|Dyson Vacuum|SUPER DISCOUNT|Summer Clearance|Ace Hardware)/i
 describe SUBJ2022 Subject contained known spam string
 score SUBJ2022 25
 
