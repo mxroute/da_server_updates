@@ -128,6 +128,7 @@ blacklist_from *.racing
 blacklist_from *.faith
 blacklist_from *.date
 whitelist_from *@mail.discord.com
+whitelist_from *@transactional.hubspotemail.net
 
 score KAM_MAILBOX2 4
 score TO_IN_SUBJ 3
