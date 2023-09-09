@@ -130,6 +130,10 @@ blacklist_from *.date
 whitelist_from *@mail.discord.com
 whitelist_from *@transactional.hubspotemail.net
 
+score KAM_CRIM 10
+score KAM_ACCOUNTPHISH 6
+score DOS_OE_TO_MX 4
+score BITCOIN_YOUR_INFO 4
 score KAM_MAILBOX2 4
 score TO_IN_SUBJ 3
 score KAM_HUGEIMGSRC 1
