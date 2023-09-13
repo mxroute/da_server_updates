@@ -242,7 +242,7 @@ header SUBJ2023 Subject =~ /(iCIoud Storage|OReiIly|PAIEMENT DES DROITS DE DOUAN
 describe SUBJ2023 Subject contained known spam string
 score SUBJ2023 25
 
-body BODYSPAM2022 /(online\-send\.com|ikrinka\.de|lacasadelascarcasas|softgentechnologies\.com|truccos\.com\.co|recursosdeautoayuda|masqmodaemail|achile\.com|cimalp\.es|we have received many complaints regarding|planas\.us14|mailkoffieloods|International Bank here in London|romancerelax|piano to give away|baronefirenze|t03\.mailsrv|perfumedigital|baronefirenze|reference\-cbd|inredningsvaruhuset|masqmodaemail|moveis\-sofas|stormrock\.fr|santorini\.net|high delivery smtp|toolssupply24hours|redesigning or upgrading|sanabenefits|cryptosinvestor|maxly\.wiki|G00gle Sheets|We have hacked your website|Home Depot wants to give you|Continue_This_Way|Neil Raine|Online Marketing and Promotion|Salesforce Customization|offering Website Design|Sexy and hot girl|drop your carbs|doodoo your carbs|poop your carbs|That Flushes Out|your carbs out|NetflixInternational|globalwomanclub|globalwomanonline\.com|truccos\.com\.co|priximbattable\.net|mailing\-lpbwoman\.com|exceljet\.net|61su\.mjt\.lu|xmtuw\.mjt\.lu)/i
+body BODYSPAM2022 /(came across your website|online\-send\.com|ikrinka\.de|lacasadelascarcasas|softgentechnologies\.com|truccos\.com\.co|recursosdeautoayuda|masqmodaemail|achile\.com|cimalp\.es|we have received many complaints regarding|planas\.us14|mailkoffieloods|International Bank here in London|romancerelax|piano to give away|baronefirenze|t03\.mailsrv|perfumedigital|baronefirenze|reference\-cbd|inredningsvaruhuset|masqmodaemail|moveis\-sofas|stormrock\.fr|santorini\.net|high delivery smtp|toolssupply24hours|redesigning or upgrading|sanabenefits|cryptosinvestor|maxly\.wiki|G00gle Sheets|We have hacked your website|Home Depot wants to give you|Continue_This_Way|Neil Raine|Online Marketing and Promotion|Salesforce Customization|offering Website Design|Sexy and hot girl|drop your carbs|doodoo your carbs|poop your carbs|That Flushes Out|your carbs out|NetflixInternational|globalwomanclub|globalwomanonline\.com|truccos\.com\.co|priximbattable\.net|mailing\-lpbwoman\.com|exceljet\.net|61su\.mjt\.lu|xmtuw\.mjt\.lu)/i
 describe BODYSPAM2022 Email contained known spam string
 score BODYSPAM2022 25
 
@@ -250,7 +250,7 @@ body BODYSPAM2023 /(Ultraviolet Lab|Votre envoi DHL Express|Roundcube Member Ser
 describe BODYSPAM2023 Email contained known spam string
 score BODYSPAM2023 25
 
-header SPAMDOMAINS2023 From =~ /(kitovinvestment\.com|mulondon\.com|ceedoo\.social|bisnisterukur\.com|ipv4services\.com|remarkety\.com|pay\.clicksondelivery\.com|beautiqline|lemonlightlabs|sislander\.com|tophaine\.ro|sanabenefits|dizitalmkt\.com)/i
+header SPAMDOMAINS2023 From =~ /(organicwebsolution\.com|kitovinvestment\.com|mulondon\.com|ceedoo\.social|bisnisterukur\.com|ipv4services\.com|remarkety\.com|pay\.clicksondelivery\.com|beautiqline|lemonlightlabs|sislander\.com|tophaine\.ro|sanabenefits|dizitalmkt\.com)/i
 describe SPAMDOMAINS2023 Spammers
 score SPAMDOMAINS2023 25
 
