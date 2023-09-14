@@ -124,6 +124,7 @@ report " pts rule name              description"
 report  ---- ---------------------- -----------------------------------------
 report _SUMMARY_
 
+blacklist_from *.bet
 blacklist_from *.racing
 blacklist_from *.faith
 blacklist_from *.date
