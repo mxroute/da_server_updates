@@ -10,7 +10,7 @@ ASNS="16578 19624 43260 29470 213200 138687 209605 204843 203576 132372 202468 5
 
 for a in $ASNS
   do
-    for b in $(whois -h whois.radb.net -- "-i origin AS$a" | grep 'route:' | awk '{print $2}')
+    for b in $(whois -h whois.radb.net -- "-i origin AS$a" | grep 'route:' | awk '{print $2}' | grep -v "46.116.21")
       do ip route add blackhole $b
     done
 done
