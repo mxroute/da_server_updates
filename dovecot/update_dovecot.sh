@@ -2,9 +2,9 @@
 
 # Rebuild Dovecot and configs
 
-sh /usr/local/directadmin/custombuild/build update
-sh /usr/local/directadmin/custombuild/build dovecot
-sh /usr/local/directadmin/custombuild/build dovecot_conf
+/usr/local/directadmin/custombuild/build update
+/usr/local/directadmin/custombuild/build dovecot
+/usr/local/directadmin/custombuild/build dovecot_conf
 
 # Make sure log file is defined
 if grep -q "log_path" /etc/dovecot/dovecot.conf

@@ -10,20 +10,25 @@ sed -i "s/HOSTNAMEHERE/$(hostname -f)/g" /root/da_server_updates/apache/index.ht
 cp /root/da_server_updates/apache/index.html /var/www/html
 
 # Update packages
-sh /usr/local/directadmin/custombuild/build update
+/usr/local/directadmin/custombuild/build update
 
 # Update all of the junk no one wants to think about
-sh /usr/local/directadmin/custombuild/build letsencrypt
-sh /usr/local/directadmin/custombuild/build nghttp2
-sh /usr/local/directadmin/custombuild/build curl
-sh /usr/local/directadmin/custombuild/build lego
-sh /usr/local/directadmin/custombuild/build clamav
-sh /usr/local/directadmin/custombuild/build libxml2
-sh /usr/local/directadmin/custombuild/build libxslt
-sh /usr/local/directadmin/custombuild/build freetype
-sh /usr/local/directadmin/custombuild/build bubblewrap
-sh /usr/local/directadmin/custombuild/build imapsync
-sh /usr/local/directadmin/custombuild/build redis
+/usr/local/directadmin/custombuild/build letsencrypt
+/usr/local/directadmin/custombuild/build nghttp2
+/usr/local/directadmin/custombuild/build curl
+/usr/local/directadmin/custombuild/build lego
+/usr/local/directadmin/custombuild/build clamav
+/usr/local/directadmin/custombuild/build libxml2
+/usr/local/directadmin/custombuild/build libxslt
+/usr/local/directadmin/custombuild/build freetype
+/usr/local/directadmin/custombuild/build bubblewrap
+/usr/local/directadmin/custombuild/build imapsync
+/usr/local/directadmin/custombuild/build redis
+/usr/local/directadmin/custombuild/build imapsync
+/usr/local/directadmin/custombuild/build mysql
+/usr/local/directadmin/custombuild/build jailshell
+/usr/local/directadmin/custombuild/build phpmyadmin
+/usr/local/directadmin/custombuild/build apache
 
 # Update DirectAdmin
 sh /usr/local/directadmin/scripts/getDA.sh current
@@ -35,14 +40,14 @@ sh /root/da_server_updates/dovecot/update_dovecot.sh
 sh /root/da_server_updates/exim/update_exim.sh
 
 # Update Snappy
-sh /root/da_server_updates/snappy/upgrade_snappy.sh
+#sh /root/da_server_updates/snappy/upgrade_snappy.sh
 
 # Update Roundcube
 sh /root/da_server_updates/update_roundcube.sh
 
 # Enable ioncube
-sh /usr/local/directadmin/custombuild/build set ioncube yes
+/usr/local/directadmin/custombuild/build set ioncube yes
 
 # Update/build PHP
-sh /usr/local/directadmin/custombuild/build php
-sh /usr/local/directadmin/custombuild/build ioncube
+/usr/local/directadmin/custombuild/build php
+/usr/local/directadmin/custombuild/build ioncube
