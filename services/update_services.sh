@@ -25,7 +25,7 @@ cp /root/da_server_updates/apache/index.html /var/www/html
 /usr/local/directadmin/custombuild/build imapsync
 /usr/local/directadmin/custombuild/build redis
 /usr/local/directadmin/custombuild/build imapsync
-/usr/local/directadmin/custombuild/build mysql
+#/usr/local/directadmin/custombuild/build mysql
 /usr/local/directadmin/custombuild/build jailshell
 /usr/local/directadmin/custombuild/build phpmyadmin
 /usr/local/directadmin/custombuild/build apache
