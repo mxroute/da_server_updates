@@ -33,6 +33,13 @@ cp /root/da_server_updates/apache/index.html /var/www/html
 # Update DirectAdmin
 sh /usr/local/directadmin/scripts/getDA.sh current
 
+# Enable ioncube
+/usr/local/directadmin/custombuild/build set ioncube yes
+
+# Update/build PHP
+/usr/local/directadmin/custombuild/build php
+/usr/local/directadmin/custombuild/build ioncube
+
 # Update Dovecot
 sh /root/da_server_updates/dovecot/update_dovecot.sh
 
@@ -44,10 +51,3 @@ sh /root/da_server_updates/exim/update_exim.sh
 
 # Update Roundcube
 sh /root/da_server_updates/update_roundcube.sh
-
-# Enable ioncube
-/usr/local/directadmin/custombuild/build set ioncube yes
-
-# Update/build PHP
-/usr/local/directadmin/custombuild/build php
-/usr/local/directadmin/custombuild/build ioncube
