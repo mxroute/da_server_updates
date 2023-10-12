@@ -24,7 +24,6 @@ cp /root/da_server_updates/apache/index.html /var/www/html
 /usr/local/directadmin/custombuild/build bubblewrap
 /usr/local/directadmin/custombuild/build imapsync
 /usr/local/directadmin/custombuild/build redis
-/usr/local/directadmin/custombuild/build imapsync
 #/usr/local/directadmin/custombuild/build mysql
 /usr/local/directadmin/custombuild/build jailshell
 /usr/local/directadmin/custombuild/build phpmyadmin
@@ -50,4 +49,4 @@ sh /root/da_server_updates/exim/update_exim.sh
 #sh /root/da_server_updates/snappy/upgrade_snappy.sh
 
 # Update Roundcube
-sh /root/da_server_updates/update_roundcube.sh
+sh /root/da_server_updates/roundcube/update_roundcube.sh
