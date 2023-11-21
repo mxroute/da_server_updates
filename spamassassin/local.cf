@@ -276,7 +276,7 @@ body HIGHIMPACTBODY /(trojan allowed me to access|there are some bad news for yo
 describe HIGHIMPACTBODY This is causing large scale issues for customers
 score HIGHIMPACTBODY 5000
 
-header HIGHIMPACTSUBJ Subject =~ /(Mail\-box validation required|I RECORDED YOU)/i
+header HIGHIMPACTSUBJ Subject =~ /(Mail Delivery Error|Mail\-box validation required|I RECORDED YOU)/i
 describe HIGHIMPACTSUBJ Fuckers
 score HIGHIMPACTSUBJ 5000
 
