@@ -252,7 +252,7 @@ body BODYSPAM2023 /(kunversion\.com|masterofficedeco\.sn|We do promotions by ema
 describe BODYSPAM2023 Email contained known spam string
 score BODYSPAM2023 25
 
-header SPAMDOMAINS2023 From =~ /(organicwebsolution\.com|kitovinvestment\.com|mulondon\.com|ceedoo\.social|bisnisterukur\.com|ipv4services\.com|remarkety\.com|pay\.clicksondelivery\.com|beautiqline|lemonlightlabs|sislander\.com|tophaine\.ro|sanabenefits|dizitalmkt\.com)/i
+header SPAMDOMAINS2023 From =~ /(milahosting\.com|organicwebsolution\.com|kitovinvestment\.com|mulondon\.com|ceedoo\.social|bisnisterukur\.com|ipv4services\.com|remarkety\.com|pay\.clicksondelivery\.com|beautiqline|lemonlightlabs|sislander\.com|tophaine\.ro|sanabenefits|dizitalmkt\.com)/i
 describe SPAMDOMAINS2023 Spammers
 score SPAMDOMAINS2023 25
 
