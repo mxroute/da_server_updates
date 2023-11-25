@@ -29,6 +29,7 @@ service lmtp {
 service imap {
   process_limit = 8192
 }
+maildir_very_dirty_syncs = yes
 EOL
 sed -i 's/imap-login {/imap-login {\n  process_limit = 16384/g' /etc/dovecot/dovecot.conf
 fi
