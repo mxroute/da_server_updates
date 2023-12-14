@@ -131,6 +131,7 @@ blacklist_from *.date
 whitelist_from *@mail.discord.com
 whitelist_from *@transactional.hubspotemail.net
 
+score ALL_TRUSTED 0
 score KAM_DMARC_REJECT 7
 score KAM_CRIM 10
 score KAM_ACCOUNTPHISH 6
