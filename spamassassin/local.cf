@@ -253,7 +253,7 @@ body BODYSPAM2023 /(interested in a contact list|kunversion\.com|masterofficedec
 describe BODYSPAM2023 Email contained known spam string
 score BODYSPAM2023 25
 
-header SPAMDOMAINS2023 From =~ /(josephyourassistant\.shop|openvideo\.digital|socialmediaphilippines\.online|videoeditorphilippines\.online|socialmediaph\.store|socialmediamanagr\.online|thevirtualhive\.online|hgconsults\.co|ubarb\.com|solidholdings\.co|pridelabs\.co|enochpro\.com|dannell\.co|macelcare\.com|desense\.co|bithubinc\.com|shieldmedia\.marketing|itsprakash\.in|milahosting\.com|organicwebsolution\.com|kitovinvestment\.com|mulondon\.com|ceedoo\.social|bisnisterukur\.com|ipv4services\.com|remarkety\.com|pay\.clicksondelivery\.com|beautiqline|lemonlightlabs|sislander\.com|tophaine\.ro|sanabenefits|dizitalmkt\.com)/i
+header SPAMDOMAINS2023 From =~ /(applecasess\.store|josephyourassistant\.shop|openvideo\.digital|socialmediaphilippines\.online|videoeditorphilippines\.online|socialmediaph\.store|socialmediamanagr\.online|thevirtualhive\.online|hgconsults\.co|ubarb\.com|solidholdings\.co|pridelabs\.co|enochpro\.com|dannell\.co|macelcare\.com|desense\.co|bithubinc\.com|shieldmedia\.marketing|itsprakash\.in|milahosting\.com|organicwebsolution\.com|kitovinvestment\.com|mulondon\.com|ceedoo\.social|bisnisterukur\.com|ipv4services\.com|remarkety\.com|pay\.clicksondelivery\.com|beautiqline|lemonlightlabs|sislander\.com|tophaine\.ro|sanabenefits|dizitalmkt\.com)/i
 describe SPAMDOMAINS2023 Spammers
 score SPAMDOMAINS2023 25
 
