@@ -258,7 +258,7 @@ header SPAMDOMAINS2023 From =~ /(onmicrosoft\.com|atravers\.top|alarmsandlocks\.
 describe SPAMDOMAINS2023 Spammers
 score SPAMDOMAINS2023 25
 
-header SPAMDOMAINS2024 From =! /(moontidedigital\-group\.com)/i
+header SPAMDOMAINS2024 From =~ /(moontidedigital\-group\.com)/i
 describe SPAMDOMAINS2024 Spammers
 score SPAMDOMAINS2024 25
 
