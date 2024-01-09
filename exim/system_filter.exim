@@ -104,14 +104,3 @@ endif
 
 
 ## -----------------------------------------------------------------------
-
-
-if $header_subject: contains "Delivery Status Notification"
-then
-  seen finish
-endif
-
-if $header_subject: contains "Mail delivery failed"
-then
-  seen finish
-endif
