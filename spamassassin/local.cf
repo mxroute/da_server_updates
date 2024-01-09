@@ -248,7 +248,7 @@ header SUBJ2023 Subject =~ /(Elon Musk|One Of Your Account Deposits Is On Hold|A
 describe SUBJ2023 Subject contained known spam string
 score SUBJ2023 25
 
-header SUBJ2024 Subject =~ /(Apotheke)/i
+header SUBJ2024 Subject =~ /(Apotheke|Journalist interview queries)/i
 describe SUBJ2024 Subject contained known spam string
 score SUBJ2024 25
 
