@@ -38,8 +38,8 @@ fi
 
 rm -f /etc/dovecot/conf.d/91-quota-warning.conf
 rm -f /usr/local/bin/quota-warning.sh
-wget -O /etc/dovecot/conf.d/91-quota-warning.conf http://files1.directadmin.com/services/all/91-quota-warning.conf
-wget -O /usr/local/bin/quota-warning.sh http://files1.directadmin.com/services/all/quota-warning.sh
+wget -O /etc/dovecot/conf.d/91-quota-warning.conf http://files.directadmin.com/services/all/91-quota-warning.conf
+wget -O /usr/local/bin/quota-warning.sh http://files.directadmin.com/services/all/quota-warning.sh
 chmod 755 /usr/local/bin/quota-warning.sh
 
 # For good measure and will probably replace the previous client limit logic later
