@@ -239,7 +239,7 @@ header SUBJ2023 Subject =~ /(Elon Musk|One Of Your Account Deposits Is On Hold|A
 describe SUBJ2023 Subject contained known spam string
 score SUBJ2023 25
 
-header SUBJ2024 Subject =~ /(Your email requires verification verify|Pay Only When You See Results|Apotheke|Journalist interview queries)/i
+header SUBJ2024 Subject =~ /(Advertising account is disabled|Your email requires verification verify|Pay Only When You See Results|Apotheke|Journalist interview queries)/i
 describe SUBJ2024 Subject contained known spam string
 score SUBJ2024 25
 
