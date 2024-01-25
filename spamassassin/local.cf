@@ -251,7 +251,7 @@ body BODYSPAM2023 /(interested in a contact list|kunversion\.com|masterofficedec
 describe BODYSPAM2023 Email contained known spam string
 score BODYSPAM2023 25
 
-body BODYSPAM2024 /(My research team shared your details with me)/i
+body BODYSPAM2024 /(Klifton Consulting|My research team shared your details with me)/i
 describe BODYSPAM2024 Email contained known spam string
 score BODYSPAM2024 25
 
@@ -259,7 +259,7 @@ header SPAMDOMAINS2023 From =~ /(onmicrosoft\.com|atravers\.top|alarmsandlocks\.
 describe SPAMDOMAINS2023 Spammers
 score SPAMDOMAINS2023 25
 
-header SPAMDOMAINS2024 From =~ /(windsorit\.services|eclipseaircharter\.com|moontidedigital\-group\.com|kolaboratoris\.shop)/i
+header SPAMDOMAINS2024 From =~ /(kliftonconsulting|windsorit\.services|eclipseaircharter\.com|moontidedigital\-group\.com|kolaboratoris\.shop)/i
 describe SPAMDOMAINS2024 Spammers
 score SPAMDOMAINS2024 25
 
