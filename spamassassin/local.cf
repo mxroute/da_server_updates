@@ -132,6 +132,7 @@ blacklist_from *.top
 whitelist_from *@mail.discord.com
 whitelist_from *@transactional.hubspotemail.net
 
+score SPOOFED_FREEMAIL 50
 score PDS_FRNOM_TODOM_NAKED_TO 500
 score ALL_TRUSTED 0
 score KAM_DMARC_REJECT 7
