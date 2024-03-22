@@ -60,5 +60,10 @@ else
         done
 fi
 
+# Fix managesieve plugin config
+rm -f /var/www/html/roundcube/plugins/managesieve/config.inc.php
+cp /root/da_server_updates/roundcube/managesieve/config.inc.php /var/www/html/roundcube/plugins/managesieve
+chown webapps. /var/www/html/roundcube/plugins/managesieve/config.inc.php
+
 unset RCMYSQLPASS
 unset RCPLUGINS
