@@ -128,7 +128,6 @@ blacklist_from *.bet
 blacklist_from *.racing
 blacklist_from *.faith
 blacklist_from *.date
-blacklist_from *.top
 whitelist_from *@mail.discord.com
 whitelist_from *@transactional.hubspotemail.net
 
