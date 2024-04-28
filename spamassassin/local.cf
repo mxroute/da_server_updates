@@ -286,9 +286,17 @@ body HIGHIMPACTBODY /(maslow\.ai|aromasdete\.com|Ik wil je informeren over een z
 describe HIGHIMPACTBODY This is causing large scale issues for customers
 score HIGHIMPACTBODY 5000
 
-header HIGHIMPACTSUBJ Subject =~ /(undelivered mail|delαyed E\-mαils|Home Depot reward|Wallet Verification Request|T\-Mobile Rewards|ZJ0B9CJ|H8VA8RY|Er is een nieuw betalingsschema|A new payment schedule has been approved|Mailbox Notification|Password Expired|2024 Notification Request|strongly recommend you check|LOAN OFFER APPLY NOW|Portable Heater|Fire Blanket|Your Prime membership is Renewing on|Your_Complimentary|from McAfee|Account to shut down in few hours|upgrade your email storage|email account is full|Password Expiration Notification|Mail Delivery Error|Mail\-box validation required|I RECORDED YOU)/i
+header HIGHIMPACTSUBJ Subject =~ /(Walmart Gift Card|undelivered mail|delαyed E\-mαils|Home Depot reward|Wallet Verification Request|T\-Mobile Rewards|ZJ0B9CJ|H8VA8RY|Er is een nieuw betalingsschema|A new payment schedule has been approved|Mailbox Notification|Password Expired|2024 Notification Request|strongly recommend you check|LOAN OFFER APPLY NOW|Portable Heater|Fire Blanket|Your Prime membership is Renewing on|Your_Complimentary|from McAfee|Account to shut down in few hours|upgrade your email storage|email account is full|Password Expiration Notification|Mail Delivery Error|Mail\-box validation required|I RECORDED YOU)/i
 describe HIGHIMPACTSUBJ Fuckers
 score HIGHIMPACTSUBJ 5000
+
+header CRYPTOSUBJ2024 Subject =~ /(Join KCS|Airdrop|New Offer Received|Unlock Your OPT$|Join The OPT Event|LayerZero|Join The Blast Event|Optimism Foundation|Join OP$|Join the KuCoin)/i
+describe CRYPTOSUBJ2024 Crypto spam
+score CRYPTOSUBJ2024 5000
+
+body CRYPTOBODY2024 /(upcoming airdrop|You have received an offer from|our latest airdrop|OPT tokens|future with Optimism|This message was sent to you by OPT|Blast Airdrop|Airdrop|your spot in the future of finance|the Blast community|Special Opportunity Inside|We have an exclusive opportunity waiting|LayerZero|opportunity to enjoy the benefits|BlastL2|Optimism Community|The Optimism Team)/i
+describe CRYPTOBODY2024 Crypto spam
+score CRYPTOBODY2024 5000
 
 header MXRBL eval:check_rbl('mxrbl', 'bl.mxrbl.com.')
 describe MXRBL At least one relay blacklisted on mxrbl.com
