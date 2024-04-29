@@ -65,5 +65,8 @@ rm -f /var/www/html/roundcube/plugins/managesieve/config.inc.php
 cp /root/da_server_updates/roundcube/managesieve/config.inc.php /var/www/html/roundcube/plugins/managesieve
 chown webapps. /var/www/html/roundcube/plugins/managesieve/config.inc.php
 
+# Rate limit login attempts
+echo "$config['login_rate_limit'] = 4;" >> /var/www/html/roundcube/config/config.inc.php
+
 unset RCMYSQLPASS
 unset RCPLUGINS
