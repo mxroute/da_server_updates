@@ -290,11 +290,11 @@ header HIGHIMPACTSUBJ Subject =~ /(Walmart Gift Card|undelivered mail|delαyed E
 describe HIGHIMPACTSUBJ Fuckers
 score HIGHIMPACTSUBJ 5000
 
-header CRYPTOSUBJ2024 Subject =~ /(Join KCS|Airdrop|New Offer Received|Unlock Your OPT$|Join The OPT Event|LayerZero|Join The Blast Event|Optimism Foundation|Join OP$|Join the KuCoin)/i
+header CRYPTOSUBJ2024 Subject =~ /(Claim Your Reward|Join KCS|Airdrop|New Offer Received|Unlock Your OPT$|Join The OPT Event|LayerZero|Join The Blast Event|Optimism Foundation|Join OP$|Join the KuCoin)/i
 describe CRYPTOSUBJ2024 Crypto spam
 score CRYPTOSUBJ2024 5000
 
-body CRYPTOBODY2024 /(revolutionary APC|upcoming airdrop|You have received an offer from|our latest airdrop|OPT tokens|future with Optimism|This message was sent to you by OPT|Blast Airdrop|Airdrop|your spot in the future of finance|the Blast community|Special Opportunity Inside|We have an exclusive opportunity waiting|LayerZero|opportunity to enjoy the benefits|BlastL2|Optimism Community|The Optimism Team)/i
+body CRYPTOBODY2024 /(your BnB Coin|revolutionary APC|upcoming airdrop|You have received an offer from|our latest airdrop|OPT tokens|future with Optimism|This message was sent to you by OPT|Blast Airdrop|Airdrop|your spot in the future of finance|the Blast community|Special Opportunity Inside|We have an exclusive opportunity waiting|LayerZero|opportunity to enjoy the benefits|BlastL2|Optimism Community|The Optimism Team)/i
 describe CRYPTOBODY2024 Crypto spam
 score CRYPTOBODY2024 5000
 
