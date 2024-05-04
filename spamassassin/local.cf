@@ -211,6 +211,7 @@ score KAM_NUMSUBJECT 3
 score SENDGRID_REDIR 5
 score FORGED_GMAIL_RCVD 3
 score RCVD_IN_BL_SPAMCOP_NET 2
+score URI_CLOUDFLAREIPFS 100
 
 # spam.dnsbl.anonmails.de
 header RCVD_IN_ANONMAILS        eval:check_rbl('anonmails-lastexternal', 'spam.dnsbl.anonmails.de.')
