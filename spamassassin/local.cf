@@ -309,4 +309,4 @@ score SPAMRATS 10
 
 header WORSTBL eval:check_rbl('worstbl', 'worst.mxrbl.com.')
 describe WORSTBL At least one relay blacklisted on worst.mxrbl.com
-score WORSTBL 100
+score WORSTBL 9999
