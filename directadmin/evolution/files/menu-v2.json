@@ -61,6 +61,12 @@
           "enabled": false,
           "newTab": false
         },
+        "/user/email/autoresponders": {
+          "enabled": false
+        },
+        "/user/email/vacations": {
+          "enabled": false
+        },
         "/user/email/spamassassin": {
           "name": "Spam Filter Config",
           "newTab": false
