@@ -10,34 +10,35 @@ sed -i "s/HOSTNAMEHERE/$(hostname -f)/g" /root/da_server_updates/apache/index.ht
 cp /root/da_server_updates/apache/index.html /var/www/html
 
 # Update packages
-/usr/local/directadmin/custombuild/build update
+da build update
+da build update_system
 
 # Update all of the junk no one wants to think about
-/usr/local/directadmin/custombuild/build letsencrypt
-/usr/local/directadmin/custombuild/build nghttp2
-/usr/local/directadmin/custombuild/build curl
-/usr/local/directadmin/custombuild/build lego
-/usr/local/directadmin/custombuild/build clamav
-/usr/local/directadmin/custombuild/build libxml2
-/usr/local/directadmin/custombuild/build libxslt
-/usr/local/directadmin/custombuild/build freetype
-/usr/local/directadmin/custombuild/build bubblewrap
-/usr/local/directadmin/custombuild/build imapsync
-/usr/local/directadmin/custombuild/build redis
-#/usr/local/directadmin/custombuild/build mysql
-/usr/local/directadmin/custombuild/build jailshell
-/usr/local/directadmin/custombuild/build phpmyadmin
-/usr/local/directadmin/custombuild/build apache
+da build letsencrypt
+da build nghttp2
+da build curl
+da build lego
+da build clamav
+da build libxml2
+da build libxslt
+da build freetype
+da build bubblewrap
+da build imapsync
+da build redis
+#da build mysql
+da build jailshell
+da build phpmyadmin
+da build apache
 
 # Update DirectAdmin
 sh /usr/local/directadmin/scripts/getDA.sh current
 
 # Enable ioncube
-/usr/local/directadmin/custombuild/build set ioncube yes
+da build set ioncube yes
 
 # Update/build PHP
-/usr/local/directadmin/custombuild/build php
-/usr/local/directadmin/custombuild/build ioncube
+da build php
+da build ioncube
 
 # Update Dovecot
 sh /root/da_server_updates/dovecot/update_dovecot.sh
