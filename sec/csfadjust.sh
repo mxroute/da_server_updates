@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Step 1: Change LF_DISTSMTP to 0
-sed -i '/^LF_DISTSMTP =/c\LF_DISTSMTP = "0"' /etc/csf/conf
+sed -i '/^LF_DISTSMTP =/c\LF_DISTSMTP = "0"' /etc/csf/csf.conf
 
 # Step 2: Restart CSF
 csf -r
