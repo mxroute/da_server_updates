@@ -1,7 +1,7 @@
 #!/bin/bash
 # These networks have been deemed clean after previously having been considered to not be so, and are now being unfucked on our network.
 
-ASNS="43811"
+ASNS="12578"
 
 for a in $ASNS
   do
