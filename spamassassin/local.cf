@@ -310,3 +310,7 @@ score SPAMRATS 10
 header WORSTBL eval:check_rbl('worstbl', 'worst.mxrbl.com.')
 describe WORSTBL At least one relay blacklisted on worst.mxrbl.com
 score WORSTBL 100
+
+header SUBJECT_MOBILE_APP Subject =~ /^(?:Mobile apps?|Mobile app)$/i
+describe SUBJECT_MOBILE_APP Subject is exactly "Mobile app" or "Mobile apps"
+score SUBJECT_MOBILE_APP 25
