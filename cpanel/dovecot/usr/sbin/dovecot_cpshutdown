@@ -1,0 +1,135 @@
+#!/usr/local/cpanel/3rdparty/bin/perl
+
+use strict;
+use warnings;
+
+use Time::HiRes ();
+
+use constant DOVECOT_PROCESS_NAMES => qw(
+  dovecot
+  dovecot-auth
+  dovecot/pop3-login
+  dovecot/imap-login
+  dovecot/anvil
+  dovecot/log
+  dovecot/config
+  dovecot/auth
+  dovecot-wrap
+);
+
+my $MAX_WAIT       = 60;    #seconds
+my $SLEEP_INTERVAL = 0.1;
+
+my $pidfile = '/var/run/dovecot/master.pid';
+
+#----------------------------------------------------------------------
+
+if ( "@ARGV" =~ m<--help> ) {
+    print <<END;
+This script shuts down Dovecot safely: gracefully at first,
+then forcefully if Dovecot’s processes don’t go away.
+END
+    exit;
+}
+
+my $master_pid;
+if ( open my $pfh, '<', $pidfile ) {
+    print "Opened “$pidfile” …\n";
+
+    $master_pid = readline($pfh);
+    if ( !defined $master_pid ) {
+        die "read($pidfile): $!" if $!;
+    }
+
+    chomp $master_pid;
+
+    if ( $master_pid =~ m<\A[0-9]+\z> ) {
+        print "Master Dovecot process = $master_pid\n";
+    }
+    else {
+        warn "Invalid contents in “$pidfile”: [$master_pid]\n";
+        undef $master_pid;
+    }
+}
+elsif ( $!{'ENOENT'} ) {
+    print "“$pidfile” doesn’t exist!\n";
+}
+else {
+    die "open($pidfile): $!";
+}
+
+my @CMD = qw( /usr/sbin/dovecot stop );
+
+print "Executing “@CMD” …\n";
+
+my $pid = fork();
+die "Failed to fork child process for “@CMD”" if !defined $pid;
+
+if ( $pid ) {
+
+    print "Waiting $MAX_WAIT seconds for process $pid to end …\n";
+    my $start = time();
+
+    my $killed;
+    while ( !waitpid( $pid, 1 ) ) {
+
+        if ( time > ( $start + $MAX_WAIT ) ) {
+            print "Process $pid has taken over $MAX_WAIT seconds to shut down.\n";
+            kill 'KILL', $pid;
+            waitpid($pid, 0);
+            $killed = 1;
+            last;
+        }
+
+        Time::HiRes::sleep($SLEEP_INTERVAL);
+    }
+
+    # If we killed the dovecot stop command we want to fallthrough to the rest of the shutdown
+    # but not if it terminated with a legitimate error.
+    exit 1 if $? && !$killed;
+}
+else {
+    exec(@CMD) or die "Failed to run “@CMD”: $!";
+}
+
+print "Done! Waiting $MAX_WAIT seconds for process $master_pid to end …\n";
+
+if ( length $master_pid ) {
+    my $start = time();
+
+    my $end;
+
+    while ( !$end ) {
+        if ( kill 'ZERO', $master_pid ) {
+            if ( time > ( $start + $MAX_WAIT ) ) {
+                print "Process $master_pid has taken over $MAX_WAIT seconds to shut down.\n";
+                _safekill_any_remaining_dovecot_processes();
+                $end = 1;
+            }
+
+            Time::HiRes::sleep($SLEEP_INTERVAL);
+        }
+        else {
+            print "Dovecot is now shut down.\n";
+
+            # We may have some stragglers so we
+            # do a safekill just in case in order to handle:
+            #
+            # Case 187449: /etc/init.d/dovecot does not stop
+            # properly dovecot
+            #
+            # When stopping dovecot we are killing some processes
+            # but a few of them might survive when dovecot-wrap is
+            # stalled.
+            _safekill_any_remaining_dovecot_processes();
+            $end = 1;
+        }
+    }
+}
+
+sub _safekill_any_remaining_dovecot_processes {
+    print "Any remaining Dovecot processes will now be terminated.\n";
+    system( '/usr/local/cpanel/etc/init/safekill', DOVECOT_PROCESS_NAMES );
+}
+
+1;
