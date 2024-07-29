@@ -255,7 +255,7 @@ body BODYSPAM2023 /(interested in a contact list|kunversion\.com|masterofficedec
 describe BODYSPAM2023 Email contained known spam string
 score BODYSPAM2023 25
 
-body BODYSPAM2024 /(blogger\.googleusercontent\.com|Donation For Change|based digital marketing company|Klifton Consulting|My research team shared your details with me)/i
+body BODYSPAM2024 /(Please review the details within the next 48 hours|blogger\.googleusercontent\.com|Donation For Change|based digital marketing company|Klifton Consulting|My research team shared your details with me)/i
 describe BODYSPAM2024 Email contained known spam string
 score BODYSPAM2024 25
 
