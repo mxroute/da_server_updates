@@ -15,6 +15,12 @@ MIN_SENDER_ADDRESSES=3
 # Clear the previous log
 find /var/log/exim -name sender_audit.log -delete
 
+# Check if whitelist file exists, create if it doesn't
+if [ ! -f "$WHITELIST_FILE" ]; then
+    echo "Whitelist file not found. Creating an empty whitelist file."
+    touch "$WHITELIST_FILE"
+fi
+
 # Function to get domain from email address
 get_domain() {
     echo "$1" | awk -F'@' '{print $2}'
