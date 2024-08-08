@@ -1,26 +1,55 @@
 #!/bin/bash
 
-# Make sure working dir exists
-mkdir -p /var/log/exim/spoofcheck
-rm -f /var/log/exim/spoofcheck/exim_ids
-rm -f /var/log/exim/spoofcheck/exim_logs
+# File containing the log
+LOG_FILE="/var/log/exim/mainlog"
 
-# Get exim IDs
-for i in $(grep -E "login:|plain:" /var/log/exim/mainlog | grep "<=" | awk '{print $3}')
-        do echo $i >> /var/log/exim/spoofcheck/exim_ids
-done
+# File containing whitelisted login addresses
+WHITELIST_FILE="/var/log/exim/whitelist.txt"
 
-# Gather logs
-for i in $(cat /var/log/exim/spoofcheck/exim_ids)
-        do grep $i /var/log/exim/mainlog >> /var/log/exim/spoofcheck/exim_logs
-done
+# Output log file
+OUTPUT_LOG="/var/log/exim/sender_audit.log"
 
-# Start the fun
-for i in $(cat /var/log/exim/spoofcheck/exim_ids)
-        do
-                LOGGEDIN=$(grep $i /var/log/exim/spoofcheck/exim_logs | awk -F'A=' '{print $2}' | awk '{print $1}' | head -1 | sed 's/login://' | sed 's/plain://')
-                SENDER=$(grep $i /var/log/exim/spoofcheck/exim_logs | awk -F'<=' '{print $2}' | awk '{print $1}' | head -1)
-                if [ "$LOGGEDIN" != "$SENDER" ]; then
-                        echo "$LOGGEDIN sent mail as $SENDER" >> /var/log/exim/spoofcheck/spooflogs
-                fi
-        done
+# Minimum number of unique sender addresses to flag
+MIN_SENDER_ADDRESSES=3
+
+# Clear the previous log
+find /var/log/exim -name sender_audit.log -delete
+
+# Function to get domain from email address
+get_domain() {
+    echo "$1" | awk -F'@' '{print $2}'
+}
+
+# Get unique login addresses, excluding whitelisted ones
+login_addresses=$(grep -a -E '(login:|plain:)' "$LOG_FILE" | awk -F'in:' '{print $2}' | awk '{print $1}' | sort | uniq | grep -vf "$WHITELIST_FILE")
+
+# Function to get sender addresses for a given login, excluding those with matching domains
+get_sender_addresses() {
+    local login="$1"
+    local login_domain=$(get_domain "$login")
+    grep -a "in:$login" "$LOG_FILE" | awk -F'<=' '{print $2}' | awk '{print $1}' | sort | uniq | while read -r sender; do
+        sender_domain=$(get_domain "$sender")
+        if [ "$sender_domain" != "$login_domain" ]; then
+            echo "$sender"
+        fi
+    done
+}
+
+# Process each login address and write results to the output log
+{
+    echo "SMTP Sender Audit Log - $(date)"
+    echo "=================================="
+    
+    while IFS= read -r login; do
+        sender_addresses=$(get_sender_addresses "$login")
+        sender_count=$(echo "$sender_addresses" | wc -l)
+        
+        if [ "$sender_count" -ge "$MIN_SENDER_ADDRESSES" ]; then
+            echo -n "User $login sent mail as: "
+            echo "$sender_addresses" | tr '\n' ',' | sed 's/,$//' | sed 's/,/, /g'
+            echo " (Total: $sender_count)"
+        fi
+    done <<< "$login_addresses"
+    
+    echo "=================================="
+} >> "$OUTPUT_LOG"
