@@ -7,12 +7,12 @@
 
 # Refresh custom files with new copies
 
-#rm -f /etc/exim.variables.conf.custom
+rm -f /etc/exim.variables.conf.custom
 rm -f /etc/exim.easy_spam_fighter/variables.conf.custom
-rm -f /etc/exim.strings.conf.custom
-#cp /root/da_server_updates/exim/exim.variables.conf.custom /etc
+#rm -f /etc/exim.strings.conf.custom
+cp /root/da_server_updates/exim/exim.variables.conf.custom /etc
 cp /root/da_server_updates/exim/easy/variables.conf.custom /etc/exim.easy_spam_fighter
-cp /root/da_server_updates/exim/exim.strings.conf.custom /etc
+#cp /root/da_server_updates/exim/exim.strings.conf.custom /etc
 
 # Rebuild exim config
 
