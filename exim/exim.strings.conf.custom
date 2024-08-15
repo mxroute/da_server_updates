@@ -1,2 +1,0 @@
-RBL_DNS_LIST==all.spamrats.com
-RBL_BLOCKED_BY_LIST==IP $sender_host_address blacklisted at $dnslist_domain
