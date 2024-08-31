@@ -243,7 +243,7 @@ header SUBJ2023 Subject =~ /(Elon Musk|One Of Your Account Deposits Is On Hold|A
 describe SUBJ2023 Subject contained known spam string
 score SUBJ2023 25
 
-header SUBJ2024 Subject =~ /(Urgent Action Required|Urgent\: Your Domain|ACE HARDWARE|grill like a pro|receive a reward|let us reward you|Tingling or numbness|skin tags|trigger Dementia|What Herpes Can Do|See why this|End Snoring|Last day to Grab|lucky online winner|hottest senior discounts|Drink less fluids|Burned In Less Than|Enhancement Gummies|qualify for an airdrop|best kitchen knives|Contactless Temperature Readings|SECRET to Keeping Warm|Prostate Shrinking|Digital Thermometer|Keto Gummies|backpack like this|Way Language Translator|Advertising account is disabled|Your email requires verification verify|Pay Only When You See Results|Apotheke|Journalist interview queries)/i
+header SUBJ2024 Subject =~ /(DeWalt|Harbor Freight|Ready to Be Claimed|Urgent Action Required|Urgent\: Your Domain|ACE HARDWARE|grill like a pro|receive a reward|let us reward you|Tingling or numbness|skin tags|trigger Dementia|What Herpes Can Do|See why this|End Snoring|Last day to Grab|lucky online winner|hottest senior discounts|Drink less fluids|Burned In Less Than|Enhancement Gummies|qualify for an airdrop|best kitchen knives|Contactless Temperature Readings|SECRET to Keeping Warm|Prostate Shrinking|Digital Thermometer|Keto Gummies|backpack like this|Way Language Translator|Advertising account is disabled|Your email requires verification verify|Pay Only When You See Results|Apotheke|Journalist interview queries)/i
 describe SUBJ2024 Subject contained known spam string
 score SUBJ2024 25
 
