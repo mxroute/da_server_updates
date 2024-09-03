@@ -65,7 +65,7 @@ fi
 while read -r ROOTDOMAIN; do
     echo "Checking $ROOTDOMAIN..." >> "$LOG_FILE"
     
-    for SUBDOMAIN in "mail" "webmail"; do
+    for SUBDOMAIN in "mail" "webmail" "mailadmin"; do
         FULLDOMAIN="${SUBDOMAIN}.${ROOTDOMAIN}"
         echo "Checking $FULLDOMAIN..." >> "$LOG_FILE"
         
