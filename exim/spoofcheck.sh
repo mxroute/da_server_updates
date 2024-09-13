@@ -3,7 +3,8 @@
 # File containing the log
 LOG_FILE="/var/log/exim/mainlog"
 
-# File containing whitelisted login addresses. These are trusted logins that are expected to spoof senders and already monitored through other processes.
+# File containing whitelisted login addresses.
+# These are trusted logins that are expected to spoof senders and already monitored through other processes.
 WHITELIST_FILE="/var/log/exim/whitelist.txt"
 
 # Output log file
