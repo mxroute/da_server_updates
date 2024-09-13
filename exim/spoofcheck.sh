@@ -10,7 +10,7 @@ WHITELIST_FILE="/var/log/exim/whitelist.txt"
 OUTPUT_LOG="/var/log/exim/sender_audit.log"
 
 # Minimum number of unique sender addresses to flag
-MIN_SENDER_ADDRESSES=3
+MIN_SENDER_ADDRESSES=2
 
 # Clear the previous log
 find /var/log/exim -name sender_audit.log -delete
