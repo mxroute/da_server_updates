@@ -20,7 +20,7 @@ for username in $(ls /usr/local/directadmin/data/users);
                 mkdir -p $DIR
                 UP=$DIR/user_prefs
                   if [ ! -s ${UP} ]; then
-                     echo 'required_score 50.0' > ${UP}
+                     echo 'required_score 30.0' > ${UP}
                      echo 'report_safe 1' >> ${UP}
                      chown $username:$username  ${UP}
                      chmod 644 ${UP}
