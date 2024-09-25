@@ -6,7 +6,7 @@
 for i in $(find /etc/virtual -name filter.conf)
         do
                 if ! grep -q "high_score_block" $i; then
-                        echo "high_score=50" >> $i
+                        echo "high_score=30" >> $i
                         echo "high_score_block=yes" >> $i
                         echo "where=delete" >> $i
                 fi
