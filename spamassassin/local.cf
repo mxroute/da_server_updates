@@ -216,6 +216,7 @@ score URI_CLOUDFLAREIPFS 100
 score BIGNUM_EMAILS_MANY 75
 score PP_MIME_FAKE_ASCII_TEXT 500
 score URI_IPFSIO 500
+score T_PDS_PRO_TLD 10
 
 # spam.dnsbl.anonmails.de
 header RCVD_IN_ANONMAILS        eval:check_rbl('anonmails-lastexternal', 'spam.dnsbl.anonmails.de.')
