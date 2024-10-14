@@ -326,7 +326,7 @@ describe SUBJECT_MOBILE_APP Subject is exactly "Mobile app" or "Mobile apps"
 score SUBJECT_MOBILE_APP 25
 
 header MESSAGE_ID_XT_LOCAL Message-ID =~ /xt\.local>?$/
-score MESSAGE_ID_XT_LOCAL 10.0
+score MESSAGE_ID_XT_LOCAL 6.0
 describe MESSAGE_ID_XT_LOCAL Salesforce Marketing Email
 
 header MESSAGE_ID_SPAM_TLD Message-ID =~ /\.(online|shop|top|world|site|today|buzz|best|click|link|cloud)>?$/i
