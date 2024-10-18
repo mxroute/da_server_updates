@@ -352,3 +352,25 @@ score SUSP_REDIRECT 3.0
 body COMMON_SPAM_PHRASES /\b(delivery fee may apply|customer number|click here to claim)\b/i
 describe COMMON_SPAM_PHRASES Contains common spam phrases
 score COMMON_SPAM_PHRASES 2.0
+
+header SAME_DOMAIN_SPF_FAIL eval:check_for_same_domain_spf_fail()
+score SAME_DOMAIN_SPF_FAIL 5.0
+
+ifplugin Mail::SpamAssassin::Plugin::Eval
+    function check_for_same_domain_spf_fail {
+        my ($self) = @_;
+        
+        # Get the From domain
+        my $from_domain = $self->get('From:addr')->domain();
+        
+        # Get the recipient domain
+        my $to_domain = $self->get('To:addr')->domain();
+        
+        # Check if domains match and SPF fails
+        if ($from_domain eq $to_domain && $self->get_tag('SPF_PASS') ne 'pass') {
+            return 1;
+        }
+        
+        return 0;
+    }
+endif
