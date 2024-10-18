@@ -332,3 +332,23 @@ describe MESSAGE_ID_XT_LOCAL Salesforce Marketing Email
 header MESSAGE_ID_SPAM_TLD Message-ID =~ /\.(online|shop|top|world|site|today|buzz|best|click|link|cloud)>?$/i
 score MESSAGE_ID_SPAM_TLD 25.0
 describe MESSAGE_ID_SPAM_TLD Email from popular spam TLD
+
+body SUSPICIOUS_REWARD /\b(reward|winner|claim|limited offer)\b/i
+describe SUSPICIOUS_REWARD Contains suspicious reward/winning language
+score SUSPICIOUS_REWARD 2.0
+
+header MISMATCH_FROM_REPLYTO From:addr !~ Reply-To:addr
+describe MISMATCH_FROM_REPLYTO From and Reply-To addresses don't match
+score MISMATCH_FROM_REPLYTO 2.0
+
+uri SUSP_IMG_HOST /\b(imgur\.com|i\.imgur\.com)\b/i
+describe SUSP_IMG_HOST Links to commonly abused image hosting site
+score SUSP_IMG_HOST 1.5
+
+uri SUSP_REDIRECT /\bfirebasestorage\.googleapis\.com\b/i
+describe SUSP_REDIRECT Contains suspicious redirect URL
+score SUSP_REDIRECT 3.0
+
+body COMMON_SPAM_PHRASES /\b(delivery fee may apply|customer number|click here to claim)\b/i
+describe COMMON_SPAM_PHRASES Contains common spam phrases
+score COMMON_SPAM_PHRASES 2.0
