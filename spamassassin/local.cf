@@ -269,7 +269,7 @@ header SPAMDOMAINS2023 From =~ /(onmicrosoft\.com|atravers\.top|alarmsandlocks\.
 describe SPAMDOMAINS2023 Spammers
 score SPAMDOMAINS2023 25
 
-header SPAMDOMAINS2024 From =~ /(qatariinvestormarketing\.live|klaviyomail\.com|cerdogradoco\.com|waneygabriel\.com|dinizconsultoriaagricola\.com|sidestreetchurch|streamingcommunity|streamingscommunity|puppyer\.com|toptechrecruitment\.ca|techrecruitment\.ca|toptechtalent\.ca|bytieful\.com|aigner\.app|datafortress\.cloud|bulkemail|bostonweb\.group|bostonwebgroup\.com|consuldocumento|kliftonconsulting|windsorit\.services|eclipseaircharter\.com|moontidedigital\-group\.com|kolaboratoris\.shop)/i
+header SPAMDOMAINS2024 From =~ /(primeloanhub\.com|qatariinvestormarketing\.live|klaviyomail\.com|cerdogradoco\.com|waneygabriel\.com|dinizconsultoriaagricola\.com|sidestreetchurch|streamingcommunity|streamingscommunity|puppyer\.com|toptechrecruitment\.ca|techrecruitment\.ca|toptechtalent\.ca|bytieful\.com|aigner\.app|datafortress\.cloud|bulkemail|bostonweb\.group|bostonwebgroup\.com|consuldocumento|kliftonconsulting|windsorit\.services|eclipseaircharter\.com|moontidedigital\-group\.com|kolaboratoris\.shop)/i
 describe SPAMDOMAINS2024 Spammers
 score SPAMDOMAINS2024 25
 
