@@ -267,10 +267,6 @@ header SPAMDOMAINS2024 From =~ /(workwithelai\.com|tryelaiagency\.com|workwithel
 describe SPAMDOMAINS2024 Spammers
 score SPAMDOMAINS2024 25
 
-header SHOPIFYARESPAMMERS From =~ /shopifyemail\.com/i
-describe SHOPIFYARESPAMMERS Shopify does not comply with the CAN-SPAM Act of 2003 nor do they care
-score SHOPIFYARESPAMMERS 0
-
 header KNOWNSPAMMER From =~ /(conversion\-dude|maslow\.ai|maslow\.email|maslow\.marketing|illuvium\-event\.io|martinperiphore\@gmail\.com|whaymatt\@gmail\.com|wanttobecomefit\.com|onixlab\.xyz|upscale\.pro|upscaleagency\.info|upscale\-agency\.net|getonixlab\.com|getonixlab\.net|onixlab\.xyz)/i
 describe KNOWNSPAMMER Known spammer
 score KNOWNSPAMMER 100
@@ -282,10 +278,6 @@ score SEOSHIT2022 50
 header SEOSHIT2022TWO Subject =~ /(tuesday offer|check some sites|win a share of|website with permanent|post an article on your site|with good DA|Guest Blogging Service|check my new website|SEO Article|Backlinks|paid positing|Sample Business Plan|Check my new site|high\-authority website|Check my site|Site DA and Spam|DA sites and more|magazines2day|Question about Video Production|want to work with you|like my site|professional SEO|work with your site|Link building|Boost your link|review our site|Check my high quality|chance to work with you|providing service in Sites|Guest Blogging stuff|Your website looks like|mail is find you very|High PA DA|affiliate marketer|Providing Unique websites|sites are slowly|site quality with you|check my new website|Homebusinessmag|HIGH QUALITY DA|Premium but still cheap|Please check a site|follow and permanent link|techynovo|thetechrim|posts on our websites|Google approved website|check my new site|foodnurish|sites with DA|article on your site|Regarding sponsor post|help you with your website|review our site|instantblow)/i
 describe SEOSHIT2022TWO Spammers
 score SEOSHIT2022TWO 50
-
-body COINSCAM2022 /(1AsRkzQSorZAc66fdXof9NHTNJdU4T8nC8Once|1Q57VuGipLWi9qauXCEDW9qrkiXuZtUcac)/i
-describe COINSCAM2022 Bitcoin ransom email
-score COINSCAM2022 25
 
 body HIGHIMPACTBODY /(glitch\.me|magiccbd\.fr|frenchockey\.fr|Qatar Investors Group|u47505400\.ct\.sendgrid\.net|degrif\.be|gpfstraps\.shop|marcomesseribiagiotti\.com|cittadelsole\.com|frenchockey\.fr|pelletteriamarant\.com|livin\.lv|lautrethe\.com|casualmode\.fr|magiccbd\.fr|Completed using your online Shopping card|financing to entrepreneurs and individuals for the development of economically viable projects|seo\-max|Netflix\_2015\_logo\.svg|blogger\.googleusercontent\.com|I am a hаckеr who has аccess|I made a vidеo showing how you sаtisfy yourself|vesicapiscisfootwear\.com|2cb04\.appspot\.com|maslow\.ai|aromasdete\.com|Ik wil je informeren over een zeer slechte|I installed it on all your devices|\.r2\.dev|Your mail host server configuration|Your Disney subscription has been suspended|khs\-uns\.com|from your FTX account|milanoweekend|I gained access to your account|oid missing important mails|digitize071|trojan allowed me to access|there are some bad news for you|qiugi\.net|my bitcoin address without spaces|dweb\.link|gestify\.it|ipfs\.dweb\.link|Kindly be inform your password|gateway\.ipfs\.io|cloudflare\-ipfs\.com|ipfs\.io|gateway\.pinata\.cloud|4everland\.io|ipfs\.yt|via0\.com|storry\.tv|dweb\.eu\.org|cf\-ipfs\.com|ipfs\.runfission\.com|ipfs\.eth\.aragon\.network|ipfs\.anonymize\.com|ipfs\.scalaproject\.io|ipfs\.fleek\.co|permaweb\.eu\.org|ipfs\.jpu\.jp|w3s\.link|nftstorage\.link|konubinix\.eu|dweb\.link|video\.oneloveipfs\.com|storjipfs\-gateway\.com|hardbin\.com)/i
 describe HIGHIMPACTBODY This is causing large scale issues for customers
@@ -329,7 +321,7 @@ score SUSP_IMG_HOST 1.5
 
 uri SUSP_REDIRECT /\bfirebasestorage\.googleapis\.com\b/i
 describe SUSP_REDIRECT Contains suspicious redirect URL
-score SUSP_REDIRECT 3.0
+score SUSP_REDIRECT 3
 
 body COMMON_SPAM_PHRASES /\b(delivery fee may apply|customer number|click here to claim)\b/i
 describe COMMON_SPAM_PHRASES Contains common spam phrases
