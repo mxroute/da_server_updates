@@ -326,3 +326,7 @@ score SUSP_REDIRECT 3
 body COMMON_SPAM_PHRASES /\b(delivery fee may apply|customer number|click here to claim)\b/i
 describe COMMON_SPAM_PHRASES Contains common spam phrases
 score COMMON_SPAM_PHRASES 2.0
+
+header   SUSP_WALLET_NOTIFY    To =~ /\@email\.notification\.wallet$/i
+score    SUSP_WALLET_NOTIFY    5000
+describe SUSP_WALLET_NOTIFY    Suspicious wallet/notification domain pattern
