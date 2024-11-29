@@ -3,10 +3,7 @@
 # Script to replace the value 7200 with 9600 in limit files under /etc/virtual
 # Usage: ./update_limits.sh
 
-# Base directory where domain directories are located
 BASE_DIR="/etc/virtual"
-
-# Counter for modified files
 modified_count=0
 
 # Function to check if a file contains only a number
@@ -40,12 +37,8 @@ for domain_dir in "$BASE_DIR"/*/; do
         if is_number_only "$limit_file"; then
             # Check if the content is 7200
             if [ "$(cat "$limit_file")" = "7200" ]; then
-                # Backup the file first
-                cp "$limit_file" "${limit_file}.bak"
-                
                 # Replace the content
                 echo "9600" > "$limit_file"
-                
                 echo "Updated: $limit_file"
                 ((modified_count++))
             fi
