@@ -308,10 +308,6 @@ header MESSAGE_ID_XT_LOCAL Message-ID =~ /xt\.local>?$/
 score MESSAGE_ID_XT_LOCAL 3.0
 describe MESSAGE_ID_XT_LOCAL Salesforce Marketing Email
 
-header MESSAGE_ID_SPAM_TLD Message-ID =~ /\.(online|shop|top|world|today|buzz|best|click|link|cloud)>?$/i
-score MESSAGE_ID_SPAM_TLD 25.0
-describe MESSAGE_ID_SPAM_TLD Email from popular spam TLD
-
 body SUSPICIOUS_REWARD /\b(reward|winner|claim|limited offer)\b/i
 describe SUSPICIOUS_REWARD Contains suspicious reward/winning language
 score SUSPICIOUS_REWARD 2.0
