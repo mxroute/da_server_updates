@@ -296,6 +296,10 @@ header CRYPTOSUBJ2024 Subject =~ /(^Claim your\ |Ledger Data Breach|Your case ha
 describe CRYPTOSUBJ2024 Crypto spam
 score CRYPTOSUBJ2024 5000
 
+header CRYPTOSUBJ2025 Subject =~ /(fսոⅾѕ іⅼⅼ bе frοzеո)/i
+describe CRYPTOSUBJ2025 Crypto spam
+score CRYPTOSUBJ2025 5000
+
 body CRYPTOBODY2024 /(exmarkmowersguide|translate\.google\.com|trust\-ledger\.s3\.us\-east\-1\.amazonaws\.com|innovative Layer 2 solution|Blast\.io|your BnB Coin|revolutionary APC|upcoming airdrop|You have received an offer from|our latest airdrop|OPT tokens|future with Optimism|This message was sent to you by OPT|Blast Airdrop|Airdrop|your spot in the future of finance|the Blast community|Special Opportunity Inside|We have an exclusive opportunity waiting|LayerZero|opportunity to enjoy the benefits|BlastL2|Optimism Community|The Optimism Team)/i
 describe CRYPTOBODY2024 Crypto spam
 score CRYPTOBODY2024 5000
