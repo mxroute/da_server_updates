@@ -22,6 +22,7 @@ fi
 
 # Initialize counters
 processed_items=0
+cert_files_processed=0
 error_count=0
 
 # Process each user
@@ -33,15 +34,39 @@ for USER in $(ls /usr/local/directadmin/data/users); do
     if [[ -d "$user_domain_dir" ]]; then
         log_message "Processing domains directory for user: $USER"
         
-        # Change ownership of the domains directory and all contents recursively
-        if chown -R diradmin:diradmin "$user_domain_dir" 2>/dev/null; then
-            count=$(find "$user_domain_dir" -type f -o -type d | wc -l)
-            processed_items=$((processed_items + count))
-            log_message "Successfully processed $count items for user $USER"
-        else
-            error_count=$((error_count + 1))
-            log_message "Error: Failed to process items for user $USER"
-        fi
+        # First, handle certificate and key files
+        while IFS= read -r -d '' file; do
+            if chown diradmin:access "$file" 2>/dev/null; then
+                cert_files_processed=$((cert_files_processed + 1))
+                log_message "Set special ownership for: $file"
+            else
+                error_count=$((error_count + 1))
+                log_message "Error: Failed to set special ownership for: $file"
+            fi
+        done < <(find "$user_domain_dir" -type f \( \
+            -name "*.cacert" -o \
+            -name "*.cert" -o \
+            -name "*.cert.combined" -o \
+            -name "*.key" -o \
+            -name "*.cert.creation_time" \
+        \) -print0)
+        
+        # Then handle all remaining files and directories
+        while IFS= read -r -d '' item; do
+            # Skip files that we already processed above
+            if [[ "$item" =~ \.(cacert|cert|cert\.combined|key|cert\.creation_time)$ ]]; then
+                continue
+            fi
+            
+            if chown diradmin:diradmin "$item" 2>/dev/null; then
+                processed_items=$((processed_items + 1))
+            else
+                error_count=$((error_count + 1))
+                log_message "Error: Failed to process: $item"
+            fi
+        done < <(find "$user_domain_dir" -print0)
+        
+        log_message "Completed processing for user $USER"
     else
         log_message "Warning: Domains directory not found for user $USER"
     fi
@@ -49,7 +74,8 @@ done
 
 # Print summary
 log_message "Process completed:"
-log_message "Total items processed (files and directories): $processed_items"
+log_message "Total regular items processed: $processed_items"
+log_message "Total certificate/key files processed: $cert_files_processed"
 log_message "Total errors encountered: $error_count"
 
 exit 0
