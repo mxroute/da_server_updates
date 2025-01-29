@@ -34,7 +34,7 @@ blackhole_ip() {
 
 # Main processing loop
 tail -F /var/log/exim/mainlog | while read -r line; do
-    if echo "$line" | grep -q "H=.*51.15.184" && echo "$line" | grep -q "rejected RCPT.*Unauthenticated mail"; then
+    if echo "$line" | grep -q "H=.*51.15.184" && echo "$line" | grep -q -E "(Relay not|Unauthenticated mail)"; then
         # Extract the real IP (the second IP in square brackets)
         ip=$(echo "$line" | grep -o '\[[0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\]' | tail -n1 | tr -d '[]')
         if [[ -n "$ip" ]] && [[ $ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
