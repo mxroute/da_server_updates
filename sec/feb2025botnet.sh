@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get server's public IP
-SERVER_IP=$(curl -s ifconfig.me)
+SERVER_IP=$(curl -4 -s ifconfig.me)
 
 # Search Exim logs, strictly matching dotted decimal IP format
 # Use [.] to ensure only literal dots are matched within the parentheses
