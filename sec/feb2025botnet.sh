@@ -13,6 +13,9 @@ for i in $(grep -a -E "H=\(${SERVER_IP//./[.]}\)|authenticator failed for \(${SE
 # New list
 for i in $(grep "Unauthenticated mail not allowed from this range" /var/log/exim/mainlog | awk -F'\\) \\[' '{print $2}' | awk '{print $1}' | sed 's/]//' | sort | uniq); do ip route add blackhole $i; done
 
+# Another list
+for i in $(grep "Relay not permitted" /var/log/exim/mainlog | awk -F'\\) \\[' '{print $2}' | awk '{print $1}' | sed 's/]//' | sort | uniq); do ip route add blackhole $i; done
+
 # Restart exim, this can't wait for procs to close naturally
 killall -9 exim
 systemctl restart exim
