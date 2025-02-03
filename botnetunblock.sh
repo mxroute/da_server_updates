@@ -25,7 +25,7 @@ while IFS= read -r ip; do
     fi
 
     # Check if IP appears in log with "in:"
-    if grep -F "$ip" /var/log/exim/mainlog | grep -q -F "in:"; then
+    if grep -F "$ip" /var/log/exim/mainlog | grep -F "in:"; then
         # Remove IP from blackhole routing
         ip route del blackhole "$ip" 2>/dev/null
 
