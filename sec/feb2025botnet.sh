@@ -19,6 +19,9 @@ for i in $(grep "Relay not permitted" /var/log/exim/mainlog | awk -F'\\) \\[' '{
 # Thank you, next
 for i in $(grep "Relay not permitted" /var/log/exim/mainlog | awk -F'F=' '{print $1}' | grep -v -F "H=("  | grep -v "X=" | awk -F'\\[' '{print $2}' | sed 's/]//' | sort | uniq); do ip route add blackhole $i; done
 
+# Unblock IPs belonging to customers caught in the crossfire
+for i in $(cat /etc/unblockme); do ip route del blackhole $i; done
+
 # Restart exim, this can't wait for procs to close naturally
 killall -9 exim
 systemctl restart exim
