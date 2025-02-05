@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Debug flag - set to 1 for debug mode, 0 for normal operation
-DEBUG=1
+DEBUG=0
 
 # Get server's public IP
 SERVER_IP=$(curl -4 -s ifconfig.me)
