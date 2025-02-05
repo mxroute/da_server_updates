@@ -6,7 +6,7 @@ DEBUG=0
 # Get server's public IP
 SERVER_IP=$(curl -4 -s ifconfig.me)
 
-# Function to count occurrences and blackhole IPs with >100 matches
+# Function to count occurrences and blackhole IPs with >75 matches
 blackhole_frequent_offenders() {
     local pattern=$1
     local description=$2
@@ -25,7 +25,7 @@ blackhole_frequent_offenders() {
     grep -v '^[[:space:]]*$' | \
     sort | \
     uniq -c | \
-    awk '$1 > 100 && $2 ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ {print $1, $2}' > "$tmp_file"
+    awk '$1 > 75 && $2 ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ {print $1, $2}' > "$tmp_file"
     
     if [ "$DEBUG" -eq 1 ]; then
         echo "=== $description ==="
@@ -65,7 +65,7 @@ if [ "$DEBUG" -eq 1 ]; then
     grep -v '^[[:space:]]*$' | \
     sort | \
     uniq -c | \
-    awk '$1 > 100 && $2 ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ {print $1, $2}'
+    awk '$1 > 75 && $2 ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ {print $1, $2}'
     echo ""
 else
     grep "Relay not permitted" /var/log/exim/mainlog | \
@@ -78,7 +78,7 @@ else
     grep -v '^[[:space:]]*$' | \
     sort | \
     uniq -c | \
-    awk '$1 > 100 && $2 ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ {print $1, $2}' | \
+    awk '$1 > 75 && $2 ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ {print $1, $2}' | \
     while read -r count ip; do
         echo "Blocking IP $ip (count: $count) - Relay Not Permitted (Secondary Format)"
         ip route add blackhole "$ip"
