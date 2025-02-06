@@ -327,3 +327,7 @@ score SUSP_REDIRECT 3
 body COMMON_SPAM_PHRASES /\b(delivery fee may apply|click here to claim)\b/i
 describe COMMON_SPAM_PHRASES Contains common spam phrases
 score COMMON_SPAM_PHRASES 25
+
+body BLOCK_ICZ      /\#iCZ\<br\>/
+score BLOCK_ICZ     5000
+describe BLOCK_ICZ  Contains specific spam marker
