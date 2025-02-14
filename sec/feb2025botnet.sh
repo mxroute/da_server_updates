@@ -25,7 +25,7 @@ blackhole_frequent_offenders() {
     grep -v '^[[:space:]]*$' | \
     sort | \
     uniq -c | \
-    awk '$1 > 75 && $2 ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ {print $1, $2}' > "$tmp_file"
+    awk '$1 > 40 && $2 ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ {print $1, $2}' > "$tmp_file"
     
     if [ "$DEBUG" -eq 1 ]; then
         echo "=== $description ==="
