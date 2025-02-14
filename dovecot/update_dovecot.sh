@@ -48,7 +48,7 @@ if grep -q "default_client_limit" /etc/dovecot/dovecot.conf
 then
         echo "default_client_limit in place."
 else
-echo "default_client_limit = 8192" >> /etc/dovecot/dovecot.conf
+echo "default_client_limit = 16384" >> /etc/dovecot/dovecot.conf
 fi
 
 # Set per IP limits above defaults
