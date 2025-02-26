@@ -1,0 +1,10 @@
+received_header_text = "Received: \
+        ${if def:authenticated_id {from ${authenticated_id} (authenticated user)}\
+        {from ${if def:sender_rcvhost {${sender_rcvhost}}\
+        {${if def:sender_ident {${sender_ident}}{}}${if def:sender_helo_name {(helo=${sender_helo_name})}{}}${sender_host_address}}}}}\
+        by ${primary_hostname} \
+        ${if def:received_protocol {with ${received_protocol}}{}} \
+        ${if def:tls_cipher {(${tls_cipher} encrypted)}{}} \
+        id ${message_id} \
+        ${if def:sender_address {(envelope-from <${sender_address}>)}{}} \
+        for ${local_part}@${domain}; ${tod_full}"
