@@ -344,3 +344,7 @@ score COMMON_SPAM_PHRASES 25
 body BLOCK_ICZ      /\#iCZ\<br\>/
 score BLOCK_ICZ     5000
 describe BLOCK_ICZ  Contains specific spam marker
+
+header FROM_GET_TRY_AI From =~ /\b(get|try)[a-z0-9-]*ai(\.[a-z0-9-]+)*\b/i
+score FROM_GET_TRY_AI 0
+describe FROM_GET_TRY_AI High spam score for sender domains starting with get or try and ending with ai
