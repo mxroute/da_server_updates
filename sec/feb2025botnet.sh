@@ -16,5 +16,5 @@ for i in $(cat /etc/unblockme); do ip route del blackhole $i; done
 
 for i in $(cat /etc/susranges_whitelist); do ip route del blackhole $i; done
 
-killall -9 exim
-systemctl restart exim
+#killall -9 exim
+#systemctl restart exim
