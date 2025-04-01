@@ -352,3 +352,7 @@ describe FROM_GET_TRY_AI High spam score for sender domains starting with get or
 header REGULARIZACAO_SPAM Subject =~ /(Regularização)/i
 score REGULARIZACAO_SPAM 25
 describe REGULARIZACAO_SPAM Detects specific spam phrase with accented characters
+
+header MAILJET_SPAMMY_CAMPAIGN X-CampaignID =~ /^(7710151790)$/
+describe MAILJET_SPAMMY_CAMPAIGN Mailjet spam campaign identified by CampaignID header
+score MAILJET_SPAMMY_CAMPAIGN 50
