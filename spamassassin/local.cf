@@ -317,7 +317,7 @@ body CRYPTOBODY2024 /(exmarkmowersguide|translate\.google\.com|trust\-ledger\.s3
 describe CRYPTOBODY2024 Crypto spam
 score CRYPTOBODY2024 5000
 
-body CRYPTOBODY2025 /(cryptocurrency was still automatically)/i
+body CRYPTOBODY2025 /(Your Bitcoin Mining Account|cryptocurrency was still automatically)/i
 describe CRYPTOBODY2025 Crypto spam
 score CRYPTOBODY2025 5000
 
