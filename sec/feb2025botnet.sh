@@ -14,5 +14,7 @@ for i in $(grep "Google Cloud has conditional access" /var/log/exim/mainlog | aw
 
 for i in $(cat /etc/unblockme); do ip route del blackhole $i; done
 
+for i in $(ip route | grep "blackhole 209.85" | awk '{print $2}'); do ip route del blackhole $i; done
+
 killall -9 exim
 systemctl restart exim
