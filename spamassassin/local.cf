@@ -309,7 +309,7 @@ header CRYPTOSUBJ2024 Subject =~ /(^Claim your\ |Ledger Data Breach|Your case ha
 describe CRYPTOSUBJ2024 Crypto spam
 score CRYPTOSUBJ2024 5000
 
-header CRYPTOSUBJ2025 Subject =~ /(fսոⅾѕ іⅼⅼ bе frοzеո)/i
+header CRYPTOSUBJ2025 Subject =~ /(fսոⅾѕ іⅼⅼ bе frοzе|Your item sold\!|Unique NFT)/i
 describe CRYPTOSUBJ2025 Crypto spam
 score CRYPTOSUBJ2025 5000
 
