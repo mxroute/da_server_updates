@@ -364,3 +364,7 @@ score MAILJET_SPAMMY_CAMPAIGN 50
 header LOCAL_ENTITY_ID_MATCH X-Entity-ID =~ /^u001\.OgmhMO9nOg9z7NrevYITGg==$/
 score LOCAL_ENTITY_ID_MATCH 500
 describe LOCAL_ENTITY_ID_MATCH X-Entity-ID header matches known bad entity ID
+
+header GMAILSPAM Subject =~ /(Affordable Websites|Put Your Site|Need a Website|Request a Quote|Organic Traffic|Digital Marketing Agency|^quick question$|Grow Business|Running Ads|much affordable|Looking Website|Custom Website|SEO Services|Boost Your Online)/i
+describe GMAILSPAM Tired of all of this spam from Gmail
+score GMAILSPAM 5000
