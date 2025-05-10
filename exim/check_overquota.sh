@@ -26,31 +26,39 @@ while IFS= read -r user; do
         continue
     fi
 
-    # Extract STORAGE line and parse Value + Limit
-    storage_line=$(echo "$output" | grep -i 'STORAGE' | head -n1)
-    if [[ -z "$storage_line" ]]; then
-        echo "Could not find STORAGE line for $user: $output"
-        continue
-    fi
-
-    read -r _ type value limit _ <<<"$storage_line"
+    # Get value and limit from STORAGE line using awk
+    storage_line=$(echo "$output" | awk '/STORAGE/ {print $2, $3}')
+    value=$(echo "$storage_line" | awk '{print $1}')
+    limit=$(echo "$storage_line" | awk '{print $2}')
 
     if [[ -z "$value" || -z "$limit" ]]; then
-        echo "Could not parse STORAGE quota for $user: $storage_line"
+        echo "Could not parse STORAGE quota for $user: $output"
         continue
     fi
 
-    if (( value < limit )); then
+    if [[ "$limit" == "-" ]]; then
         if [[ $DEBUG -eq 1 ]]; then
-            echo "[DEBUG] $user is under quota ($value < $limit), would remove"
+            echo "[DEBUG] $user has unlimited quota, would remove"
         else
-            echo "$user is under quota ($value < $limit), removing from list"
+            echo "$user has unlimited quota, removing from list"
             continue
         fi
-    else
-        if [[ $DEBUG -eq 1 ]]; then
-            echo "[DEBUG] $user is still over quota ($value >= $limit), keeping"
+    elif [[ "$value" =~ ^[0-9]+$ && "$limit" =~ ^[0-9]+$ ]]; then
+        if (( value < limit )); then
+            if [[ $DEBUG -eq 1 ]]; then
+                echo "[DEBUG] $user is under quota ($value < $limit), would remove"
+            else
+                echo "$user is under quota ($value < $limit), removing from list"
+                continue
+            fi
+        else
+            if [[ $DEBUG -eq 1 ]]; then
+                echo "[DEBUG] $user is still over quota ($value >= $limit), keeping"
+            fi
         fi
+    else
+        echo "Unexpected non-numeric value or limit for $user: value='$value', limit='$limit'"
+        continue
     fi
 
     echo "$user" >> "$TEMP_FILE"
