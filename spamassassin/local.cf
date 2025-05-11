@@ -269,11 +269,11 @@ body BODYSPAM2024 /(Remove\-me|Mobile Survey and Win an iPad Pro|chinashopping|l
 describe BODYSPAM2024 Email contained known spam string
 score BODYSPAM2024 25
 
-body BODYSPAM2025 /(moncbdpascher|tousergo\.com|cannablou\.com|training\.proabled\.com)/i
+body BODYSPAM2025 /(paymenttracking\.info|moncbdpascher|tousergo\.com|cannablou\.com|training\.proabled\.com)/i
 describe BODYSPAM2025 Email contained known spam string
 score BODYSPAM2025 25
 
-header SPAMDOMAINS2023 From =~ /(onmicrosoft\.com|atravers\.top|alarmsandlocks\.co\.ke|applecasess\.store|josephyourassistant\.shop|openvideo\.digital|socialmediaphilippines\.online|videoeditorphilippines\.online|socialmediaph\.store|socialmediamanagr\.online|thevirtualhive\.online|hgconsults\.co|ubarb\.com|solidholdings\.co|pridelabs\.co|enochpro\.com|dannell\.co|macelcare\.com|desense\.co|bithubinc\.com|shieldmedia\.marketing|itsprakash\.in|milahosting\.com|organicwebsolution\.com|kitovinvestment\.com|mulondon\.com|ceedoo\.social|bisnisterukur\.com|ipv4services\.com|remarkety\.com|pay\.clicksondelivery\.com|beautiqline|lemonlightlabs|sislander\.com|tophaine\.ro|sanabenefits|dizitalmkt\.com)/i
+header SPAMDOMAINS2023 From =~ /(atravers\.top|alarmsandlocks\.co\.ke|applecasess\.store|josephyourassistant\.shop|openvideo\.digital|socialmediaphilippines\.online|videoeditorphilippines\.online|socialmediaph\.store|socialmediamanagr\.online|thevirtualhive\.online|hgconsults\.co|ubarb\.com|solidholdings\.co|pridelabs\.co|enochpro\.com|dannell\.co|macelcare\.com|desense\.co|bithubinc\.com|shieldmedia\.marketing|itsprakash\.in|milahosting\.com|organicwebsolution\.com|kitovinvestment\.com|mulondon\.com|ceedoo\.social|bisnisterukur\.com|ipv4services\.com|remarkety\.com|pay\.clicksondelivery\.com|beautiqline|lemonlightlabs|sislander\.com|tophaine\.ro|sanabenefits|dizitalmkt\.com)/i
 describe SPAMDOMAINS2023 Spammers
 score SPAMDOMAINS2023 25
 
@@ -309,7 +309,7 @@ header CRYPTOSUBJ2024 Subject =~ /(^Claim your\ |Ledger Data Breach|Your case ha
 describe CRYPTOSUBJ2024 Crypto spam
 score CRYPTOSUBJ2024 5000
 
-header CRYPTOSUBJ2025 Subject =~ /(fսոⅾѕ іⅼⅼ bе frοzе|Your item sold\!|Unique NFT)/i
+header CRYPTOSUBJ2025 Subject =~ /(Trust Wallet|fսոⅾѕ іⅼⅼ bе frοzе|Your item sold\!|Unique NFT)/i
 describe CRYPTOSUBJ2025 Crypto spam
 score CRYPTOSUBJ2025 5000
 
@@ -360,3 +360,11 @@ describe REGULARIZACAO_SPAM Detects specific spam phrase with accented character
 header MAILJET_SPAMMY_CAMPAIGN X-CampaignID =~ /^(7710151790)$/
 describe MAILJET_SPAMMY_CAMPAIGN Mailjet spam campaign identified by CampaignID header
 score MAILJET_SPAMMY_CAMPAIGN 50
+
+header LOCAL_ENTITY_ID_MATCH X-Entity-ID =~ /^u001\.OgmhMO9nOg9z7NrevYITGg==$/
+score LOCAL_ENTITY_ID_MATCH 500
+describe LOCAL_ENTITY_ID_MATCH X-Entity-ID header matches known bad entity ID
+
+header GMAILSPAM Subject =~ /(Affordable Websites|Put Your Site|Need a Website|Request a Quote|Organic Traffic|Digital Marketing Agency|^quick question$|Grow Business|Running Ads|much affordable|Looking Website|Custom Website|SEO Services|Boost Your Online)/i
+describe GMAILSPAM Tired of all of this spam from Gmail
+score GMAILSPAM 5000
