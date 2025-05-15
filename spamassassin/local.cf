@@ -224,6 +224,7 @@ score KAM_FROM_URIBL_PCCC 0
 score KAM_BODY_URIBL_PCCC 0
 score PCCC_HDR_REPLYTO 0
 score UNPARSEABLE_RELAY 0
+score GOOG_REDIR_NORDNS 100
 
 header SPAMFROM2025 From =~ /(90823098632|getthatroi)/i
 describe SPAMFROM2025 Email from known spam domaim
