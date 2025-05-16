@@ -362,7 +362,7 @@ header MAILJET_SPAMMY_CAMPAIGN X-CampaignID =~ /^(7710151790)$/
 describe MAILJET_SPAMMY_CAMPAIGN Mailjet spam campaign identified by CampaignID header
 score MAILJET_SPAMMY_CAMPAIGN 50
 
-header LOCAL_ENTITY_ID_MATCH X-Entity-ID =~ /^u001\.OgmhMO9nOg9z7NrevYITGg==$/
+header LOCAL_ENTITY_ID_MATCH X-Entity-ID =~ /(^u001\.OgmhMO9nOg9z7NrevYITGg==$|^u001\.1oxFCbHDvxWJB2\/UqCWHyw==$)/
 score LOCAL_ENTITY_ID_MATCH 500
 describe LOCAL_ENTITY_ID_MATCH X-Entity-ID header matches known bad entity ID
 
