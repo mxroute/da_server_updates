@@ -318,7 +318,7 @@ body CRYPTOBODY2024 /(formuletesting\.com|exmarkmowersguide|translate\.google\.c
 describe CRYPTOBODY2024 Crypto spam
 score CRYPTOBODY2024 5000
 
-body CRYPTOBODY2025 /(Your Bitcoin Mining Account|cryptocurrency was still automatically)/i
+body CRYPTOBODY2025 /(cryptocurrency collection continued|cloud Bitcoin mining|Your Bitcoin Mining Account|cryptocurrency was still automatically)/i
 describe CRYPTOBODY2025 Crypto spam
 score CRYPTOBODY2025 5000
 
