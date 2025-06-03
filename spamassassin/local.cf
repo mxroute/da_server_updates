@@ -377,3 +377,7 @@ describe LOCAL_FEEDBACK_ID_MATCH Feedback-Id header matches known bad Feedback-I
 header GMAILSPAM Subject =~ /(Affordable Websites|Put Your Site|Need a Website|Request a Quote|Organic Traffic|Digital Marketing Agency|^quick question$|Grow Business|Running Ads|much affordable|Looking Website|Custom Website|SEO Services|Boost Your Online)/i
 describe GMAILSPAM Tired of all of this spam from Gmail
 score GMAILSPAM 25
+
+header LOCAL_MSGID_CLOSE Message-ID =~ /smtpgw\.close\.com/i
+score LOCAL_MSGID_CLOSE 25.0
+describe LOCAL_MSGID_CLOSE Message-ID contains smtpgw.close.com
