@@ -381,3 +381,7 @@ score GMAILSPAM 25
 header LOCAL_MSGID_CLOSE Message-ID =~ /smtpgw\.close\.com/i
 score LOCAL_MSGID_CLOSE 25.0
 describe LOCAL_MSGID_CLOSE Message-ID contains smtpgw.close.com
+
+header   FROM_TLD_CFD From =~ /\@[^@\s]+\.(cfd)\b/i
+score    FROM_TLD_CFD 5.0
+describe FROM_TLD_CFD Sender domain ends in .cfd
