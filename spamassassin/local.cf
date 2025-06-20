@@ -370,7 +370,7 @@ header LOCAL_ENTITY_ID_MATCH X-Entity-ID =~ /(^u001\.OgmhMO9nOg9z7NrevYITGg==$|^
 score LOCAL_ENTITY_ID_MATCH 500
 describe LOCAL_ENTITY_ID_MATCH X-Entity-ID header matches known bad entity ID
 
-header LOCAL_FEEDBACK_ID_MATCH Feedback-Id =~ /(s\_87337861462\:shopify|s\_94960615749\:shopify|s\_85502918921\:shopify)/
+header LOCAL_FEEDBACK_ID_MATCH Feedback-Id =~ /(s\_87337861462\:shopify|s\_94960615749\:shopify|s\_85502918921\:shopify|s\_94534959439\:shopify)/
 score LOCAL_FEEDBACK_ID_MATCH 500
 describe LOCAL_FEEDBACK_ID_MATCH Feedback-Id header matches known bad Feedback-Id
 
