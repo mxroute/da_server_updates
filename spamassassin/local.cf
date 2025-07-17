@@ -234,7 +234,7 @@ header SPAMDOMAINS From =~ /(goiwc\.com|ediket|intbl\.co\.uk|peelregion\.ca|geti
 describe SPAMDOMAINS Spammers
 score SPAMDOMAINS 25
 
-header SPAMDOMAINS2025 From =~ /(mazalflow)/i
+header SPAMDOMAINS2025 From =~ /(mazalflow|qubeconsult\.com\.au)/i
 describe SPAMDOMAINS2025 Spammers
 score SPAMDOMAINS2025 25
 
