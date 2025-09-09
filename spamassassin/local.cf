@@ -378,7 +378,7 @@ header LOCAL_FEEDBACK_ID_MATCH Feedback-Id =~ /(s\_87337861462\:shopify|s\_94960
 score LOCAL_FEEDBACK_ID_MATCH 500
 describe LOCAL_FEEDBACK_ID_MATCH Feedback-Id header matches known bad Feedback-Id
 
-header GMAILSPAM Subject =~ /(Auto\-Debit Today|Affordable Websites|Put Your Site|Need a Website|Request a Quote|Organic Traffic|Digital Marketing Agency|^quick question$|Grow Business|Running Ads|much affordable|Looking Website|Custom Website|SEO Services|Boost Your Online)/i
+header GMAILSPAM Subject =~ /(Auto\-Debit Today|Affordable Websites|Put Your Site|Need a Website|Organic Traffic|Digital Marketing Agency|^quick question$|Grow Business|Running Ads|much affordable|Looking Website|Custom Website|SEO Services|Boost Your Online)/i
 describe GMAILSPAM Tired of all of this spam from Gmail
 score GMAILSPAM 25
 
