@@ -358,7 +358,7 @@ body BLOCK_ICZ      /\#iCZ\<br\>/
 score BLOCK_ICZ     5000
 describe BLOCK_ICZ  Contains specific spam marker
 
-body BLOGSPOT      /blogspot/
+body BLOGSPOT      /\.blogspot\./i
 score BLOGSPOT     5
 describe BLOGSPOT  Blogspot means spam and very rarely real people stuck in the stone age
 
