@@ -401,3 +401,7 @@ describe SUBJECT_CONTAINS_LEDGER   Subject contains "Ledger"
 body     BODY_CONTAINS_AMAZONAWS   /\.amazonaws\.com/i
 score    BODY_CONTAINS_AMAZONAWS   3.0
 describe BODY_CONTAINS_AMAZONAWS   Body contains ".amazonaws.com"
+
+header   SUBJECT_MAILBOX  Subject =~ /Mailbox/i
+describe SUBJECT_MAILBOX  Subject contains "Mailbox"
+score    SUBJECT_MAILBOX  5.0
