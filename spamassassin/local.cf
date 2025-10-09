@@ -132,6 +132,10 @@ blacklist_from *.date
 whitelist_from *@mail.discord.com
 whitelist_from *@transactional.hubspotemail.net
 
+dns_query_restriction deny sa-accredit.habeas.com
+dns_query_restriction deny sa-trusted.bondedsender.org
+dns_query_restriction deny bl.score.senderscore.com
+
 score SPOOFED_FREEMAIL 0
 score PDS_FRNOM_TODOM_NAKED_TO 500
 score ALL_TRUSTED 0
