@@ -399,7 +399,7 @@ score    FROM_TLD_CFD 5.0
 describe FROM_TLD_CFD Sender domain ends in .cfd
 
 header   SUBJECT_CONTAINS_LEDGER   Subject =~ /Ledger/i
-score    SUBJECT_CONTAINS_LEDGER   3.0
+score    SUBJECT_CONTAINS_LEDGER   10
 describe SUBJECT_CONTAINS_LEDGER   Subject contains "Ledger"
 
 body     BODY_CONTAINS_AMAZONAWS   /\.amazonaws\.com/i
