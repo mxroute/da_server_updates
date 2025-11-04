@@ -282,7 +282,7 @@ body BODYSPAM2024 /(Remove\-me|Mobile Survey and Win an iPad Pro|chinashopping|l
 describe BODYSPAM2024 Email contained known spam string
 score BODYSPAM2024 25
 
-body BODYSPAM2025 /(calibercontests|poseiweed\.com|boosted placement speed|how it works in a quick demo|We are a trusted manufacturer of|caris\.uniroma2\.it|u48775041\.ct\.sendgrid\.net|paymenttracking\.info|moncbdpascher|tousergo\.com|cannablou\.com|training\.proabled\.com)/i
+body BODYSPAM2025 /(poseiweed\.com|calibercontests|poseiweed\.com|boosted placement speed|how it works in a quick demo|We are a trusted manufacturer of|caris\.uniroma2\.it|u48775041\.ct\.sendgrid\.net|paymenttracking\.info|moncbdpascher|tousergo\.com|cannablou\.com|training\.proabled\.com)/i
 describe BODYSPAM2025 Email contained known spam string
 score BODYSPAM2025 25
 
