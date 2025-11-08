@@ -266,7 +266,7 @@ header SUBJ2024 Subject =~ /(Complete Our Survey|Advertise up to|Finalisation de
 describe SUBJ2024 Subject contained known spam string
 score SUBJ2024 25
 
-header SUBJ2025 Subject =~ /(roadside kit|is currently being activated| AAA |Important Security Upgrade|Partnership Opportunity|Collaboration Opportunity|Collaboration Offer)/i
+header SUBJ2025 Subject =~ /(Local Leads|roadside kit|is currently being activated| AAA |Important Security Upgrade|Partnership Opportunity|Collaboration Opportunity|Collaboration Offer)/i
 describe SUBJ2025 Subject contained known spam string
 score SUBJ2025 25
 
