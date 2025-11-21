@@ -280,10 +280,6 @@ body BODYSPAM2023 /(interested in a contact list|kunversion\.com|masterofficedec
 describe BODYSPAM2023 Email contained known spam string
 score BODYSPAM2023 25
 
-body BODYSPAM2024 /(Remove\-me|Mobile Survey and Win an iPad Pro|chinashopping|linodeobjects\.com|img\.mailinblue\.com|Please review the details within the next 48 hours|blogger\.googleusercontent\.com|Donation For Change|based digital marketing company|Klifton Consulting|My research team shared your details with me)/i
-describe BODYSPAM2024 Email contained known spam string
-score BODYSPAM2024 25
-
 body BODYSPAM2025 /(represent an Investment Loan Company|tienda\.berrendo\.com|relicon\.co|poseiweed\.com|calibercontests|poseiweed\.com|boosted placement speed|how it works in a quick demo|We are a trusted manufacturer of|caris\.uniroma2\.it|u48775041\.ct\.sendgrid\.net|paymenttracking\.info|moncbdpascher|tousergo\.com|cannablou\.com|training\.proabled\.com)/i
 describe BODYSPAM2025 Email contained known spam string
 score BODYSPAM2025 25
@@ -327,10 +323,6 @@ score CRYPTOSUBJ2024 5000
 header CRYPTOSUBJ2025 Subject =~ /(SW1wb3J0YW50IFNlY3VyaXR5IFVwZGF0ZSDigJMgSW1tZWRpYXRlIEFjdGlvbi|Trust Wallet|fսոⅾѕ іⅼⅼ bе frοzе|Your item sold\!|Unique NFT)/i
 describe CRYPTOSUBJ2025 Crypto spam
 score CRYPTOSUBJ2025 5000
-
-body CRYPTOBODY2024 /(formuletesting\.com|exmarkmowersguide|trust\-ledger\.s3\.us\-east\-1\.amazonaws\.com|innovative Layer 2 solution|Blast\.io|your BnB Coin|revolutionary APC|upcoming airdrop|You have received an offer from|our latest airdrop|OPT tokens|future with Optimism|This message was sent to you by OPT|Blast Airdrop|Airdrop|your spot in the future of finance|the Blast community|Special Opportunity Inside|We have an exclusive opportunity waiting|LayerZero|opportunity to enjoy the benefits|BlastL2|Optimism Community|The Optimism Team)/i
-describe CRYPTOBODY2024 Crypto spam
-score CRYPTOBODY2024 5000
 
 body CRYPTOBODY2025 /(cryptocurrency collection continued|cloud Bitcoin mining|Your Bitcoin Mining Account|cryptocurrency was still automatically)/i
 describe CRYPTOBODY2025 Crypto spam
