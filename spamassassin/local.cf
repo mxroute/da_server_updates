@@ -320,7 +320,7 @@ header HIGHIMPACTSUBJ Subject =~ /(Notificacion de vencimiento \- No|Your Passwo
 describe HIGHIMPACTSUBJ Fuckers
 score HIGHIMPACTSUBJ 5000
 
-header CRYPTOSUBJ2024 Subject =~ /(^Claim your\ |Ledger Data Breach|Your case has been resolved N|I buy this NFT|Claim Your Reward|Join KCS|Airdrop|New Offer Received|Unlock Your OPT$|Join The OPT Event|LayerZero|Join The Blast Event|Optimism Foundation|Join OP$|Join the KuCoin)/i
+header CRYPTOSUBJ2024 Subject =~ /(^Claim your\ |Ledger Data Breach|Your case has been resolved N|I buy this NFT|Claim Your Reward|Join KCS|New Offer Received|Unlock Your OPT$|Join The OPT Event|LayerZero|Join The Blast Event|Optimism Foundation|Join OP$|Join the KuCoin)/i
 describe CRYPTOSUBJ2024 Crypto spam
 score CRYPTOSUBJ2024 5000
 
