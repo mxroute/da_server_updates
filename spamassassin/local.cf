@@ -280,7 +280,7 @@ body BODYSPAM2023 /(interested in a contact list|kunversion\.com|masterofficedec
 describe BODYSPAM2023 Email contained known spam string
 score BODYSPAM2023 25
 
-body BODYSPAM2025 /(dreamweed\.fr|owiweed\.fr|represent an Investment Loan Company|tienda\.berrendo\.com|relicon\.co|poseiweed\.com|calibercontests|poseiweed\.com|boosted placement speed|how it works in a quick demo|We are a trusted manufacturer of|caris\.uniroma2\.it|u48775041\.ct\.sendgrid\.net|paymenttracking\.info|moncbdpascher|tousergo\.com|cannablou\.com|training\.proabled\.com)/i
+body BODYSPAM2025 /(wp\-admin\/network|dreamweed\.fr|owiweed\.fr|represent an Investment Loan Company|tienda\.berrendo\.com|relicon\.co|poseiweed\.com|calibercontests|poseiweed\.com|boosted placement speed|how it works in a quick demo|We are a trusted manufacturer of|caris\.uniroma2\.it|u48775041\.ct\.sendgrid\.net|paymenttracking\.info|moncbdpascher|tousergo\.com|cannablou\.com|training\.proabled\.com)/i
 describe BODYSPAM2025 Email contained known spam string
 score BODYSPAM2025 25
 
