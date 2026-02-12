@@ -8,3 +8,7 @@ for i in $(grep -a "Recipient address rejected: Domain not found" /var/log/exim/
 				for i in $(exim -bp | grep -v "D " | grep $a -B 1 | awk '{print $3}'); do exim -Mg $i; done
 			done
 	done
+
+sort /var/log/exim/spam_recipient_staging | uniq >> /var/log/exim/spam_recipient_staging2
+rm -f /var/log/exim/spam_recipient_staging
+mv /var/log/exim/spam_recipient_staging2 /var/log/exim/spam_recipient_staging
