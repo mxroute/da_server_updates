@@ -139,13 +139,13 @@ dns_query_restriction deny bl.score.senderscore.com
 score SPOOFED_FREEMAIL 0
 score PDS_FRNOM_TODOM_NAKED_TO 500
 score ALL_TRUSTED 0
-score KAM_DMARC_REJECT 7
+score KAM_DMARC_REJECT 15
 score KAM_CRIM 10
 score KAM_ACCOUNTPHISH 6
 score DOS_OE_TO_MX 4
 score BITCOIN_YOUR_INFO 4
 score KAM_MAILBOX2 5
-score TO_IN_SUBJ 5
+score TO_IN_SUBJ 7
 score KAM_HUGEIMGSRC 1
 score RCVD_IN_HOSTKARMA_W 0
 score KAM_PASSEXP 5000
