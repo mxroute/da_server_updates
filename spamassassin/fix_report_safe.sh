@@ -8,6 +8,8 @@
 # and replaces with: report_safe 0
 #
 
+sed -i 's/"report_safe" : "2"/"report_safe" : "0"/' /usr/local/directadmin/data/templates/custom/spam_defaults.json
+
 COUNT=0
 
 for HOMEDIR in /home* ; do
