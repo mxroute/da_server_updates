@@ -28,6 +28,7 @@
 #   server (i.e. not spammers)
 #
 # trusted_networks 212.17.35.
+trusted_networks 127.0.0.1
 
 
 #   Set file-locking method (flock is not safe over NFS, but is faster)
