@@ -21,7 +21,7 @@
 #   Save spam messages as a message/rfc822 MIME attachment instead of
 #   modifying the original message (0: off, 2: use text/plain instead)
 #
-# report_safe 1
+report_safe 0
 
 
 #   Set which networks or hosts are considered 'trusted' by your mail
