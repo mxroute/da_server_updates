@@ -3,3 +3,5 @@ tls_require_ciphers=ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:
 disable_ipv6=false
 smtp_accept_max=5000
 smtp_accept_queue_per_connection=25
+dmarc_tld_file = /etc/exim/opendmarc.tlds
+AUTH_BLOCK_SENDER_SPOOFING = no
