@@ -138,7 +138,7 @@ dns_query_restriction deny sa-trusted.bondedsender.org
 dns_query_restriction deny bl.score.senderscore.com
 
 score SPOOFED_FREEMAIL 0
-score PDS_FRNOM_TODOM_NAKED_TO 500
+score PDS_FRNOM_TODOM_NAKED_TO 5
 score ALL_TRUSTED 0
 score KAM_DMARC_REJECT 0
 score KAM_CRIM 10
