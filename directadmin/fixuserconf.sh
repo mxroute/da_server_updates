@@ -5,4 +5,5 @@ for i in $(ls /usr/local/directadmin/data/users);
                 sed -i 's/login_keys=OFF/login_keys=ON/g' /usr/local/directadmin/data/users/$i/user.conf
                 sed -i 's/ssl=OFF/ssl=ON/g' /usr/local/directadmin/data/users/$i/user.conf
                 sed -i 's/ssl=OFF/ssl=ON/g' /usr/local/directadmin/data/users/$i/domains/*.conf
+                sed -i 's/api_with_password=no/api_with_password=yes/g' /usr/local/directadmin/data/users/$i/user.conf
         done
