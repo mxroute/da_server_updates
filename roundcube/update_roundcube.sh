@@ -3,7 +3,7 @@ set -e
 
 WORK="/root/working/roundcube"
 VERSION="1.6.13"
-TARGET="/var/www/html/roundcubemail-1.6.11"
+TARGET="/var/www/html/roundcube"
 TARBALL="roundcubemail-${VERSION}.tar.gz"
 URL="https://github.com/roundcube/roundcubemail/releases/download/${VERSION}/${TARBALL}"
 
