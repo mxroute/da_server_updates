@@ -35,7 +35,6 @@ FILES=(
     spoofwhitelist
     susranges
     susranges_domainwhitelist
-    susranges_protected_domains
     susranges_whitelist
 )
 
