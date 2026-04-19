@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OVERQUOTA_FILE="/etc/overquota"
+OVERQUOTA_FILE="/etc/exim/overquota"
 TEMP_FILE="/tmp/overquota_tmp.$$"
 DEBUG=0  # Set to 1 for debug mode
 
