@@ -88,7 +88,38 @@ if (( ${#conflicts[@]} > 0 )); then
     exit 1
 fi
 
+# Deploy the updated ACL include files from the local repo clone.
+# These stay in /etc/ (NOT /etc/exim/); only the data files they reference moved.
+REPO_EXIM="/root/da_server_updates/exim"
+ACL_INCLUDES=(
+    exim.acl_check_helo.pre.conf
+    exim.acl_check_message.pre.conf
+    exim.acl_check_recipient.pre.conf
+)
+
+if [[ ! -d "$REPO_EXIM" ]]; then
+    echo
+    echo "WARNING: $REPO_EXIM not found. Skipping ACL include deployment." >&2
+    echo "Clone the repo to /root/da_server_updates and re-run, or deploy the" >&2
+    echo "ACL files manually." >&2
+    exit 1
+fi
+
 echo
-echo "Migration complete. Remember to:"
-echo "  - Deploy the updated ACL/config files that reference /etc/exim/*"
-echo "  - Restart exim:  killall -9 exim && systemctl restart exim"
+echo "Deploying ACL includes from $REPO_EXIM to /etc/ ..."
+for acl in "${ACL_INCLUDES[@]}"; do
+    src="$REPO_EXIM/$acl"
+    dst="/etc/$acl"
+    if [[ ! -f "$src" ]]; then
+        echo "  MISSING $src, skipping" >&2
+        continue
+    fi
+    cp "$src" "$dst"
+    echo "  Deployed $dst"
+done
+
+echo
+echo "Restarting exim ..."
+killall -9 exim 2>/dev/null
+systemctl restart exim
+echo "Done."
