@@ -273,7 +273,7 @@ header SUBJ2025 Subject =~ /(Ninja CREAMi|Road Kit|Louis Vuitton Bags|Local Lead
 describe SUBJ2025 Subject contained known spam string
 score SUBJ2025 25
 
-header SUBJ2026 Subject =~ /(leads for sale)/i
+header SUBJ2026 Subject =~ /(leads for sale|Advertise to MILLIONS OF EMAILS)/i
 describe SUBJ2026 Subject contained known spam string
 score SUBJ2026 25
 
