@@ -289,7 +289,7 @@ body BODYSPAM2025 /(wp\-admin\/network|dreamweed\.fr|owiweed\.fr|represent an In
 describe BODYSPAM2025 Email contained known spam string
 score BODYSPAM2025 25
 
-body BODYSPAM2026 /(Your ebay annual subscription upgrade is live)/i
+body BODYSPAM2026 /(casualsexfind|Your ebay annual subscription upgrade is live)/i
 describe BODYSPAM2026 Email contained known spam string
 score BODYSPAM2026 25
 
