@@ -233,6 +233,10 @@ score GOOG_REDIR_NORDNS 100
 score USER_IN_DEF_SPF_WL 0
 score KAM_HTMLNOISE 2
 
+header SPAMDOMAINS2026 From =~ /(4you\.com)/i
+describe SPAMDOMAINS2026 Spammers
+score SPAMDOMAINS2026 25
+
 header SPAMFROM2025 From =~ /(90823098632|getthatroi)/i
 describe SPAMFROM2025 Email from known spam domaim
 score SPAMFROM2025 50.0
